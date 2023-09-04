@@ -1,0 +1,43 @@
+/* Styles for the dropdown container */
+.dropdown {
+    position: relative;
+  }
+  
+  /* Styles for the dropdown button */
+  .dropdown-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  /* Styles for the dropdown content */
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 120px;
+  }
+  
+  /* Styles for dropdown content items (links) */
+  .dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Hover styles for dropdown content items */
+  .dropdown-content a:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Show dropdown content when isDropdownOpen is true */
+  .dropdown-content.show {
+    display: block;
+  }
+  

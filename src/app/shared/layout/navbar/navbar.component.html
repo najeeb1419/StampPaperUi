@@ -1,0 +1,40 @@
+<div class="nav-main">
+    <div class="nav-left">
+        <div class="nav-msg-author">
+            Good Morning Robert
+        </div>
+        <div class="nav-welscome-msg">
+            Welcome Back!
+        </div>
+    </div>
+    <div class="nav-right">
+        <div class="Search">
+            <div class="search-icon">
+                <img src="../../../../../assets/img/search.png" class="img-fluid" alt="Search">
+            </div>
+        </div>
+        <div class="notifications">
+            <div class="bell-icon">
+                <img src="../../../../../assets/img/bell.png" alt="">
+            </div>
+        </div>
+        <div class="profile">
+            <div class="user-profile">
+                <div class="user-icon">
+                    <img src="../../../../../assets/img/user.png" alt="">
+                    <div class="dropdown">
+                        <button class="dropdown-button" (click)="toggleDropdown()">
+                            <fa-icon [icon]="faChevronDown"></fa-icon>
+                        </button>
+                        <div class="dropdown-content" *ngIf="isDropdownOpen">
+                          <a (click)="logout()">Logout</a>
+                      
+                        </div>
+                      </div>
+                
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

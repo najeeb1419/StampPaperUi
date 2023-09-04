@@ -1,0 +1,885 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+#izla-crm .izla-crm-container {
+  display: flex;
+}
+#izla-crm .izla-crm-container .sidebar {
+  flex: 2;
+  background: #161624;
+  color: white;
+  height: 121vh;
+  position: sticky;
+  top: 0%;
+  padding: 30px 20px;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  flex-direction: column;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .logo {
+  text-align: center;
+  position: relative;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .logo:before {
+  position: absolute;
+  content: "";
+  top: auto;
+  bottom: -5px;
+  right: auto;
+  left: auto;
+  height: 2px;
+  width: 160.11px;
+  background: #2A273B;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-links {
+  margin: 30px 0;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-links ul {
+  list-style: none;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-links ul li {
+  color: #809FB8;
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-links ul li .sidebar-dashboard-icon {
+  fill: #809FB8;
+  display: flex;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-links ul li span {
+  padding-left: 15px;
+  font-weight: 400;
+  font-size: 15px;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-links ul li .accounts-and-finance {
+  position: absolute;
+  width: 180px;
+  right: 7px;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-links ul .active {
+  color: white;
+  position: relative;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-links ul .active:before {
+  position: absolute;
+  content: "";
+  top: 2px;
+  right: auto;
+  left: -12px;
+  bottom: 0;
+  width: 6px;
+  height: 47px;
+  background: #008ACF;
+  border-radius: 10px;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-links ul .active .sidebar-dashboard-icon {
+  fill: white;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-links ul .active .accounts-and-finance {
+  position: absolute;
+  width: 180px;
+  left: 25px;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-bottom .sidebar-company {
+  background-image: url(../src/assets/img/sidebar-bottom.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 177.21px;
+  width: 197px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+#izla-crm .izla-crm-container .sidebar .sidebar-container .sidebar-bottom .sidebar-company .company-name p {
+  background: white;
+  color: #008ACF;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 12px;
+  padding: 8px 16px;
+}
+#izla-crm .izla-crm-container .crm-right {
+  flex: 12;
+}
+#izla-crm .izla-crm-container .crm-right .navbar-top {
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1882352941);
+  padding: 7px 25px;
+}
+#izla-crm .izla-crm-container .crm-right .navbar-top .nav-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#izla-crm .izla-crm-container .crm-right .navbar-top .nav-main .nav-left .nav-msg-author {
+  font-weight: 700;
+  font-size: 16px;
+  font-family: "Poppins";
+}
+#izla-crm .izla-crm-container .crm-right .navbar-top .nav-main .nav-left .nav-welcome-msg {
+  color: #828282;
+  font-size: 13px;
+}
+#izla-crm .izla-crm-container .crm-right .navbar-top .nav-main .nav-right {
+  display: flex;
+  align-items: center;
+}
+#izla-crm .izla-crm-container .crm-right .navbar-top .nav-main .nav-right .notifications {
+  padding: 0 20px;
+}
+#izla-crm .izla-crm-container .crm-right .navbar-top .nav-main .nav-right .profile {
+  padding: 0 32px 0 0;
+}
+#izla-crm .izla-crm-container .crm-right .navbar-top .nav-main .nav-right .profile .user-profile .user-icon {
+  display: flex;
+  align-items: center;
+}
+#izla-crm .izla-crm-container .crm-right .navbar-top .nav-main .nav-right .profile .user-profile .user-icon .ng-fa-icon {
+  padding-left: 14px;
+  font-size: 12px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container {
+  padding: 30px 30px 20px 40px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .newLeads-container, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .newLeads-container, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .newLeads-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .newLeads-container .leads-title h6, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .newLeads-container .leads-title h6, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .newLeads-container .leads-title h6 {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  font-weight: 500;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .newLeads-container .leads-container, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .newLeads-container .leads-container, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .newLeads-container .leads-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .newLeads-container .leads-container .new-leads button, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .newLeads-container .leads-container .new-leads button, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .newLeads-container .leads-container .new-leads button {
+  border-radius: 4px;
+  background: #008ACF;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: white;
+  border: none;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .newLeads-container .leads-container .import-leads button, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .newLeads-container .leads-container .import-leads button, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .newLeads-container .leads-container .import-leads button {
+  border-radius: 4px;
+  background: #77D791;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: white;
+  border: none;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .newLeads-container .leads-container .filter-leads button, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .newLeads-container .leads-container .filter-leads button, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .newLeads-container .leads-container .filter-leads button {
+  border-radius: 4px;
+  background: #F4F8F9;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: none;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component {
+  margin-top: 40px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .all-leads-title h6, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .all-leads-title h6, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .all-leads-title h6 {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  font-weight: 500;
+  padding-bottom: 15px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .new-arrival, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .new-arrival, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .new-arrival {
+  border-radius: 8px;
+  background: #FEFEFE;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .new-arrival .total-leads-container, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .new-arrival .total-leads-container, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .new-arrival .total-leads-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 130px;
+  margin-bottom: 30px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .new-arrival .title, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .new-arrival .title, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .new-arrival .title {
+  color: #8A9DAF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .interested, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .interested, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .interested {
+  border-radius: 8px;
+  background: #FEFEFE;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .interested .interested-container, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .interested .interested-container, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .interested .interested-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 130px;
+  margin-bottom: 30px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .interested .title, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .interested .title, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .interested .title {
+  color: #8A9DAF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .not-interested, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .not-interested, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .not-interested {
+  border-radius: 8px;
+  background: #FEFEFE;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .not-interested .not-interested-container, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .not-interested .not-interested-container, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .not-interested .not-interested-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 130px;
+  margin-bottom: 30px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .not-interested .title, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .not-interested .title, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .not-interested .title {
+  color: #8A9DAF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .customer, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .customer, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .customer {
+  border-radius: 8px;
+  background: #FEFEFE;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .customer .customer-container, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .customer .customer-container, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .customer .customer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 130px;
+  margin-bottom: 30px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .customer .title, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .customer .title, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .customer .title {
+  color: #8A9DAF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .lost-leads, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .lost-leads, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .lost-leads {
+  border-radius: 8px;
+  background: #FEFEFE;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .lost-leads .lost-leads-container, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .lost-leads .lost-leads-container, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .lost-leads .lost-leads-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 130px;
+  margin-bottom: 30px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .all-leads-component .leads-list .lost-leads .title, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .all-leads-component .leads-list .lost-leads .title, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .all-leads-component .leads-list .lost-leads .title {
+  color: #8A9DAF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .main-table .table-top, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .main-table .table-top, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .main-table .table-top {
+  display: flex;
+  padding: 15px 26px;
+  justify-content: space-between;
+  align-items: center;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .main-table .table-top .calendar span, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .main-table .table-top .calendar span, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .main-table .table-top .calendar span {
+  color: #008ACF;
+  font-size: 16px;
+  font-weight: 600;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .main-table .table-top .search, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .main-table .table-top .search, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .main-table .table-top .search {
+  width: 391px;
+  height: 38px;
+  display: flex;
+  border-radius: 4px;
+  background: #FFF;
+  align-items: center;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .main-table .table-top .search input, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .main-table .table-top .search input, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .main-table .table-top .search input {
+  width: 100%;
+  border: none;
+  padding: 5px 10px;
+  color: #92929D;
+  font-size: 14px;
+  font-weight: 400;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .main-table .table-top .search input:focus-visible, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .main-table .table-top .search input:focus-visible, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .main-table .table-top .search input:focus-visible {
+  outline: none;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .main-table .table-top .search i, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .main-table .table-top .search i, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .main-table .table-top .search i {
+  padding: 8px 10px 8px 13px;
+  background-color: #008ACF;
+  color: white;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .main-table .mat-elevation-z8, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .main-table .mat-elevation-z8, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .main-table .mat-elevation-z8 {
+  border-radius: 4px;
+  background: #FFF;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .main-table .mat-elevation-z8 .mat-mdc-table .mdc-data-table__content .mdc-data-table__row, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .main-table .mat-elevation-z8 .mat-mdc-table .mdc-data-table__content .mdc-data-table__row, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .main-table .mat-elevation-z8 .mat-mdc-table .mdc-data-table__content .mdc-data-table__row {
+  border-radius: 4px;
+  border: 2px solid #F0F0F0;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .main-table .mat-elevation-z8 .mat-mdc-table .mdc-data-table__content .mdc-data-table__row:hover, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .main-table .mat-elevation-z8 .mat-mdc-table .mdc-data-table__content .mdc-data-table__row:hover, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .main-table .mat-elevation-z8 .mat-mdc-table .mdc-data-table__content .mdc-data-table__row:hover {
+  background: rgba(0, 138, 207, 0.0509803922);
+  border-radius: 4px;
+  cursor: pointer;
+  border: 3px solid rgba(0, 138, 207, 0.6901960784);
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .main-table .mat-elevation-z8 .mat-mdc-paginator .mat-mdc-paginator-outer-container .mat-mdc-paginator-container, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .main-table .mat-elevation-z8 .mat-mdc-paginator .mat-mdc-paginator-outer-container .mat-mdc-paginator-container, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .main-table .mat-elevation-z8 .mat-mdc-paginator .mat-mdc-paginator-outer-container .mat-mdc-paginator-container {
+  justify-content: space-between;
+  padding: 0 26px;
+  margin: 10px 0 0;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .leads-main-container .main-table .mat-elevation-z8 .mat-mdc-paginator .mat-mdc-paginator-outer-container .mat-mdc-paginator-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-label, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .main-table .mat-elevation-z8 .mat-mdc-paginator .mat-mdc-paginator-outer-container .mat-mdc-paginator-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-label, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .main-table .mat-elevation-z8 .mat-mdc-paginator .mat-mdc-paginator-outer-container .mat-mdc-paginator-container .mat-mdc-paginator-page-size .mat-mdc-paginator-page-size-label {
+  color: #7C7F85;
+  font-size: 14px;
+  font-weight: 400;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .login-main-container {
+  display: flex;
+  height: 100vh;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .login-main-container .login-page-left {
+  flex: 8;
+  background: #161624;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .login-main-container .login-start {
+  flex: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .login-main-container .login-start .login-form-container .title {
+  text-align: center;
+  color: #23262F;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 40px;
+  margin-bottom: 15px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .login-main-container .login-start .login-form-container .form-start .login-form-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .login-main-container .login-start .login-form-container .form-start .login-form-start .login-btn {
+  text-align: center;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .login-main-container .login-start .login-form-container .form-start .login-form-start .login-btn button {
+  border-radius: 4px;
+  background: #008ACF;
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  border: none;
+  line-height: 24px;
+  padding: 10px 25px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container {
+  background: #FFF;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .new-lead-title .title, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .new-lead-title .title {
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  font-weight: 500;
+  color: #19274B;
+  cursor: pointer;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .new-lead-title svg, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .new-lead-title svg {
+  fill: #008ACF;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .new-lead-title .new-lead-content, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .new-lead-title .new-lead-content {
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  font-weight: 500;
+  color: #008ACF;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start {
+  border-radius: 4px;
+  background: #FFF;
+  margin: 40px 0;
+  padding: 40px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-title, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-title {
+  color: #008ACF;
+  font-size: 20px;
+  font-weight: 600;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container {
+  margin: 40px 0;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input {
+  position: relative;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input input, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input input {
+  border-radius: 4px;
+  border: 1px solid rgba(196, 196, 196, 0.5);
+  position: relative;
+  width: 100%;
+  height: 32px;
+  padding: 0 10px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input input:focus-visible, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input input:focus-visible {
+  border: 1px solid #008ACF;
+  outline: none;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input select, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input select, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input textarea, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input textarea {
+  border-radius: 4px;
+  border: 1px solid rgba(196, 196, 196, 0.5);
+  position: relative;
+  width: 100%;
+  height: 32px;
+  padding: 0 10px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input select:focus-visible, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input select:focus-visible, #izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input textarea:focus-visible, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input textarea:focus-visible {
+  border: 1px solid #008ACF;
+  outline: none;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input textarea, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input textarea {
+  height: auto;
+  padding: 10px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input label, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-input label {
+  position: absolute;
+  top: -11px;
+  z-index: 1;
+  left: 1em;
+  background-color: white;
+  padding: 0 5px;
+  color: #000;
+  font-size: 15px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center {
+  padding: 40px 0;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .col-8, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .col-8,
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .col-4,
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .col-4 {
+  padding: 20px 10px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .col-12, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .col-12 {
+  padding: 20px 10px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .col-12 .checkboxes.d-flex .new-lead-checkbox, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .col-12 .checkboxes.d-flex .new-lead-checkbox {
+  padding: 0 5px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .col-12 .checkboxes.d-flex .new-lead-checkbox label, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .col-12 .checkboxes.d-flex .new-lead-checkbox label {
+  padding-left: 5px;
+  color: #000;
+  font-size: 14px;
+  line-height: 28.971px; /* 206.935% */
+  letter-spacing: 0.852px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes {
+  -moz-column-count: 5;
+       column-count: 5;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes .new-lead-checkbox, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes .new-lead-checkbox {
+  padding: 10px 5px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes .new-lead-checkbox label, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes .new-lead-checkbox label {
+  padding-left: 5px;
+  color: #000;
+  font-size: 14px;
+  line-height: 28.971px; /* 206.935% */
+  letter-spacing: 0.852px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex {
+  padding: 20px 0;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex .new-lead-checkbox-1, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex .new-lead-checkbox-1 {
+  flex: 2;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex .new-lead-checkbox-2, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex .new-lead-checkbox-2 {
+  flex: 2;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex .new-lead-checkbox-3, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex .new-lead-checkbox-3 {
+  flex: 2;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex .new-lead-checkbox-4, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex .new-lead-checkbox-4 {
+  flex: 4;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex .new-lead-checkbox-5, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .form-center .services-checkboxes .checkboxes.checkbox-inner.d-flex .new-lead-checkbox-5 {
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28.971px; /* 206.935% */
+  letter-spacing: 0.852px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-buttons, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-buttons .cancel, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-buttons .cancel {
+  padding-right: 20px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-buttons .cancel button, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-buttons .cancel button {
+  border-radius: 4px;
+  color: #008ACF;
+  border: 1px solid #008ACF;
+  background-color: #FFF;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 8px 14px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-buttons .submit button, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .new-lead-buttons .submit button {
+  border-radius: 4px;
+  background: #008ACF;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 9px 22px;
+  border: 1px solid #008ACF;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .others .col-4 .submit, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .others .col-4 .submit {
+  margin-top: 17px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .create-leads-container .new-leads-layout .create-form-start .form-container #create-lead form .others .col-4 .submit button, #izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .new-leads-layout .create-form-start .form-container #create-lead form .others .col-4 .submit button {
+  border-radius: 4px;
+  background: #008ACF;
+  color: #FFF;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 6px 16px;
+  border: 1px solid #008ACF;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .lead-profile-title .title {
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  font-weight: 500;
+  color: #19274B;
+  cursor: pointer;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .lead-profile-title svg {
+  fill: #008ACF;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .lead-profile-title .lead-profile-content {
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  font-weight: 500;
+  color: #008ACF;
+  cursor: pointer;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-header {
+  border-radius: 4px;
+  background: #EAEEF5;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab-list .mat-mdc-tab-labels .mat-mdc-tab {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab-list .mat-mdc-tab-labels .mat-mdc-tab .mdc-tab__content .mdc-tab__text-label {
+  color: rgba(22, 22, 36, 0.575);
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab-list .mat-mdc-tab-labels .mdc-tab--active {
+  border-radius: 4px;
+  background: #008ACF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab-list .mat-mdc-tab-labels .mdc-tab--active .mdc-tab__content .mdc-tab__text-label {
+  color: #FFF;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab-list .mat-mdc-tab-labels .mdc-tab--active .mdc-tab-indicator {
+  top: 2px;
+  display: none;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab-list .mat-mdc-tab-labels .mdc-tab--active .mdc-tab-indicator .mdc-tab-indicator__content.mdc-tab-indicator__content--underline {
+  border-color: #008ACF;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper {
+  margin: 30px 0;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-btns {
+  justify-content: flex-end;
+  gap: 10px;
+  align-items: center;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-btns .info-edit-delete-btns {
+  background: #4BDE97;
+  gap: 10px;
+  border-radius: 4px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-btns .info-edit-delete-btns button {
+  border: none;
+  background: #4BDE97;
+  color: white;
+  font-size: 16px;
+  border-right: 1px solid white;
+  padding-right: 10px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-btns .info-edit-delete-btns .edit-btn {
+  border-right: none;
+  padding-right: 0;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-btns .lead-info-convert {
+  background: #008ACF;
+  gap: 10px;
+  border-radius: 4px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-btns .lead-info-convert button {
+  border: none;
+  background: #008ACF;
+  color: white;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-btns .lead-info-more {
+  background: #FBB123;
+  gap: 10px;
+  border-radius: 4px;
+  padding: 3px 12px;
+  cursor: pointer;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-btns .lead-info-more button {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start {
+  padding: 60px 0;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel {
+  padding: 10px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-header .mat-content .mat-expansion-panel-header-title span {
+  color: #000;
+  font-size: 19px;
+  font-weight: 500;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-header .mat-expansion-indicator {
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  background: #008ACF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-header .mat-expansion-indicator::after {
+  color: white;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body {
+  padding: 20px 24px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body .lead-info-content {
+  display: flex;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body .lead-info-content .lead-info-items {
+  flex: 3;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body .lead-info-content .lead-info-items .lead-info-name .name {
+  color: #008ACF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28.971px;
+  letter-spacing: 0.852px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body .lead-info-content .lead-info-items .lead-info-name .lead-name {
+  padding-left: 11px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28.971px;
+  letter-spacing: 0.852px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body .lead-info-content .zip-code {
+  flex: 3;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body .lead-info-content .description {
+  flex: 12;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body .lead-info-content .web-to-lead-form {
+  flex: 9;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-start #lead-profile .profile-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-container .lead-info-start .mat-accordion-multi .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body .latest-activity p {
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.852px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left {
+  border-radius: 4px;
+  background: #FCFCFC;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .user-profile {
+  padding: 40px 15px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .user-profile .profile-img {
+  text-align: center;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .user-profile .profile-img img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .user-title h4 {
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 15px 0 10px;
+  margin-bottom: 0;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .user-last-contacted p {
+  color: #828282;
+  font-size: 11px;
+  font-weight: 400;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .user-last-contacted p::after {
+  position: absolute;
+  content: "";
+  top: auto;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  height: 6px;
+  width: 6px;
+  background-color: #008ACF;
+  border-radius: 50%;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .convert-customer-btn button {
+  border-radius: 4px;
+  background: #008ACF;
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 400;
+  border: none;
+  padding: 10px 50px;
+  margin-top: 20px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .profile-left-tabs .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab-list .mat-mdc-tab-labels .mdc-tab-indicator--active .mdc-tab__content .mdc-tab__text-label {
+  color: #19274B;
+  font-size: 14px;
+  font-weight: 500;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .profile-left-tabs .mat-mdc-tab-group .mat-mdc-tab-header .mat-mdc-tab-label-container .mat-mdc-tab-list .mat-mdc-tab-labels .mdc-tab-indicator--active .mdc-tab-indicator .mdc-tab-indicator__content {
+  border-color: #008ACF;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .profile-left-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-content .lead-info-items {
+  padding: 15px 0px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .profile-left-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-content .lead-info-items .lead-info-name .name {
+  color: #008ACF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28.971px;
+  letter-spacing: 0.852px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .profile-left-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-content .lead-info-items .lead-info-name .lead-name {
+  padding-left: 11px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28.971px;
+  letter-spacing: 0.852px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .profile-left-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-content .zip-code {
+  flex: 3;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .profile-left-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-content .description {
+  flex: 12;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-left .profile-left-tabs .mat-mdc-tab-group .mat-mdc-tab-body-wrapper .mat-mdc-tab-body .mat-mdc-tab-body-content .lead-info-content .web-to-lead-form {
+  flex: 9;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-right .mat-accordion .mat-expansion-panel .mat-expansion-panel-header .mat-content .mat-expansion-panel-header-title span {
+  color: #19274B;
+  font-size: 14px;
+  font-weight: 500;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-right .mat-accordion .mat-expansion-panel .mat-expansion-panel-header .mat-content .mat-expansion-panel-header-description {
+  color: rgba(22, 22, 36, 0.5);
+  font-size: 11px;
+  font-weight: 400;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-right .mat-accordion .mat-expansion-panel .mat-expansion-panel-header .mat-expansion-panel-header-description {
+  flex-grow: 0;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-right .mat-accordion .mat-expansion-panel .mat-expansion-panel-header .mat-expansion-indicator::after {
+  color: #23262F;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-right .mat-accordion .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body {
+  padding-left: 5px;
+  padding-right: 0;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-right .mat-accordion .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body .lead-info-content .lead-info-items {
+  padding: 15px 0px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-right .mat-accordion .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body .lead-info-content .lead-info-items .lead-info-name .name {
+  color: #008ACF;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28.971px;
+  letter-spacing: 0.852px;
+}
+#izla-crm .izla-crm-container .crm-right .crm-routes .lead-profile-container .lead-profile-layout .profile-right .mat-accordion .mat-expansion-panel .mat-expansion-panel-content .mat-expansion-panel-body .lead-info-content .lead-info-items .lead-info-name .lead-name {
+  padding-left: 11px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28.971px;
+  letter-spacing: 0.852px;
+}/*# sourceMappingURL=styles.css.map */

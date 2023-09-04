@@ -1,0 +1,49 @@
+.login-main-container {
+    display: flex;
+    height: 100vh;
+    .login-page-left {
+        flex: 8;
+        background: #161624;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .login-start {
+        flex: 4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .login-form-container {
+            .title {
+                text-align: center;
+                color: #23262F;
+                // font-family: $poppins;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 40px;
+                margin-bottom: 15px;
+            }
+            .form-start {
+                .login-form-start {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    .login-btn {
+                        text-align: center;
+                        button {
+                            border-radius: 4px;
+                            background: #008ACF;
+                            color: #FFF;
+                            font-size: 16px;
+                            font-style: normal;
+                            font-weight: 500;
+                            border: none;
+                            line-height: 24px;
+                            padding: 10px 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

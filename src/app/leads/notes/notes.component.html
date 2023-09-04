@@ -1,0 +1,124 @@
+<div class="mb-3" *ngIf="!showForm">
+    <button class="btn btn-primary" (click)="showAddNoteForm()">Add Note</button>
+</div>
+<div *ngIf="showForm">
+    <form [formGroup]="AddNoteForm" (ngSubmit)="AddNote()">
+        <div class="row">
+            <!-- <div class="col-12 mt-3">
+                <label for="addDescription">Description</label>
+                <textarea type="text" class="form-control" formControlName="description" id="addDescription"></textarea>
+            </div> -->
+            <div class="col-12 mt-3">
+                <editor [init]="init" formControlName="description" id="addDescription"></editor>
+            </div>
+            
+            <div class="col-md-3 pt-2">
+                <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)"
+                    style="display:none;">
+                <button type="button" class="btn btn-success" (click)="file.click()">Upload File</button>
+            </div>
+            <div class="col-md-4 pt-2">
+           
+      
+                    {{FileName}}
+            </div>
+            <div class="col-12 mt-2">
+                <button class="btn btn-primary" [disabled]="!AddNoteForm.valid"> + Add</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div *ngIf="LeadNotes">
+
+
+    <div class="card mt-2" style="background-color:#FCFCFC; border: 1px;" *ngFor="let st of LeadNotes; let i = index">
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-1">
+                    <div class="profile">
+                        <div class="user-profile">
+                            <div class="user-icon">
+                                <img src="../../../../../assets/img/user.png" alt="">
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div><strong>{{st.firstName}} {{st.lastName}}</strong> </div>
+
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1.66667 1.25C1.55616 1.25 1.45018 1.2939 1.37204 1.37204C1.2939 1.45018 1.25 1.55616 1.25 1.66667C1.25 3.54528 1.99628 5.34696 3.32466 6.67534C4.65304 8.00372 6.45472 8.75 8.33333 8.75C8.44384 8.75 8.54982 8.7061 8.62796 8.62796C8.7061 8.54982 8.75 8.44384 8.75 8.33333V6.875C8.75 6.76449 8.7061 6.65851 8.62796 6.58037C8.54982 6.50223 8.44384 6.45833 8.33333 6.45833C7.8125 6.45833 7.3125 6.375 6.84583 6.22083C6.77257 6.1975 6.69435 6.19448 6.61951 6.21209C6.54467 6.2297 6.476 6.26728 6.42083 6.32083L5.50417 7.2375C4.32133 6.63593 3.35991 5.6745 2.75833 4.49167L3.675 3.57083C3.73019 3.51848 3.7693 3.45147 3.78775 3.37767C3.8062 3.30387 3.80322 3.22633 3.77917 3.15417C3.6211 2.67419 3.54092 2.172 3.54167 1.66667C3.54167 1.55616 3.49777 1.45018 3.41963 1.37204C3.34149 1.2939 3.23551 1.25 3.125 1.25H1.66667ZM6.25 1.25V1.875H7.70833L5.41667 4.16667L5.83333 4.58333L8.125 2.29167V3.75H8.75V1.25H6.25Z"
+                            fill="#4BDE97" />
+                    </svg>
+                    <span style="color: #828282; size: 10px; font-weight: 400;"> Note added: {{ st.creationTime |
+                        date:'yyyy-MM-dd \'at\' h:mm a' }}</span>
+
+
+
+                    <!-- <p class="pt-4" style="font-weight: 400;    ">{{st.description}} </p> -->
+                    <div *ngIf="!showFormArray[i]">
+                    <div class="pt-4" [innerHtml]="st.description">
+
+                    </div>
+             
+                    </div>
+                    <div>
+                        <a [href]="getFileUrl(st.fileName)" target="_blank">OpenFile</a>
+                      </div>
+                    <hr class="mt-4">
+                    <div *ngIf="showFormArray[i]">
+                        <form [formGroup]="UpdateNoteFrom" (ngSubmit)="UpdateNote(st.noteID,st.userid)">
+                            <div class="row">
+                                <div class="col-12 mt-3 ">
+                                    <label for="description">Description</label>
+                                    <editor [init]="init" formControlName="description" id="addDescription"></editor>
+                                
+                                </div>
+                                <div class="col-2 mt-2">
+                                    <button class="btn btn-primary btn-sm" [disabled]="Loader">
+                                        <span *ngIf="!Loader">Save</span>
+                                        <span *ngIf="Loader">
+                                            <span class="spinner-border spinner-border-sm" role="status"
+                                                aria-hidden="true"></span>
+                                            Saving...
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-2">
+                    <div style="display: inline-block;" (click)="toggleForm(i)">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="30" height="30" rx="4" fill="#4BDE97" />
+                            <path
+                                d="M18.0713 10.558L19.4417 11.9278L18.0713 10.558ZM18.9526 9.35124L15.2469 13.0569C15.0554 13.2481 14.9248 13.4917 14.8716 13.757L14.5293 15.4704L16.2427 15.1275C16.508 15.0744 16.7513 14.9444 16.9428 14.7529L20.6485 11.0472C20.7599 10.9358 20.8482 10.8036 20.9085 10.6581C20.9687 10.5126 20.9997 10.3567 20.9997 10.1992C20.9997 10.0417 20.9687 9.88578 20.9085 9.74029C20.8482 9.59479 20.7599 9.4626 20.6485 9.35124C20.5371 9.23988 20.4049 9.15155 20.2594 9.09128C20.114 9.03102 19.958 9 19.8005 9C19.6431 9 19.4871 9.03102 19.3416 9.09128C19.1961 9.15155 19.0639 9.23988 18.9526 9.35124V9.35124Z"
+                                stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M19.7058 16.7635V18.7047C19.7058 19.0479 19.5695 19.3771 19.3268 19.6198C19.0841 19.8625 18.7549 19.9988 18.4117 19.9988H11.2941C10.9509 19.9988 10.6217 19.8625 10.379 19.6198C10.1363 19.3771 10 19.0479 10 18.7047V11.5871C10 11.2439 10.1363 10.9147 10.379 10.672C10.6217 10.4293 10.9509 10.293 11.2941 10.293H13.2353"
+                                stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div style="display:inline-block; padding-left: 3px;" (click)="Remove(st.noteID)">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="30" height="30" rx="4" fill="#FF8881" />
+                            <path
+                                d="M15.5001 8C16.0834 7.99996 16.6447 8.21954 17.0687 8.6137C17.4927 9.00785 17.7474 9.5467 17.7804 10.1197L17.7839 10.2469H21.4731C21.6067 10.247 21.7352 10.2969 21.8328 10.3865C21.9303 10.4762 21.9897 10.599 21.9988 10.7301C22.0079 10.8612 21.9661 10.9907 21.8818 11.0927C21.7975 11.1946 21.6771 11.2612 21.5448 11.2791L21.4731 11.284H20.9138L20.0143 20.2854C19.9692 20.7342 19.7635 21.1526 19.4338 21.4659C19.1042 21.7792 18.6721 21.967 18.2147 21.9959L18.091 22H12.9092C12.4506 22 12.007 21.8396 11.6577 21.5474C11.3083 21.2552 11.0759 20.8503 11.002 20.405L10.9859 20.2847L10.0857 11.284H9.52703C9.39968 11.2839 9.27663 11.2386 9.18065 11.1562C9.08466 11.0739 9.02224 10.9601 9.00492 10.836L9 10.7654C9.00001 10.6401 9.04613 10.5191 9.12984 10.4246C9.21355 10.3302 9.32918 10.2688 9.45536 10.2518L9.52703 10.2469H13.2163C13.2163 9.651 13.4569 9.07948 13.8852 8.65811C14.3135 8.23673 14.8944 8 15.5001 8ZM19.8548 11.284H11.1447L12.035 20.1831C12.0547 20.3817 12.1437 20.5674 12.2867 20.7088C12.4298 20.8502 12.6182 20.9385 12.8199 20.9588L12.9092 20.963H18.091C18.5126 20.963 18.8703 20.6691 18.9518 20.2702L18.9659 20.1831L19.8541 11.284H19.8548ZM16.7298 13.1852C16.8572 13.1852 16.9802 13.2306 17.0762 13.3129C17.1722 13.3953 17.2346 13.509 17.2519 13.6332L17.2569 13.7037V18.5432C17.2568 18.6746 17.2061 18.801 17.1149 18.897C17.0238 18.993 16.899 19.0514 16.7657 19.0604C16.6325 19.0693 16.5008 19.0282 16.3972 18.9453C16.2936 18.8624 16.2259 18.7439 16.2077 18.6137L16.2028 18.5432V13.7037C16.2028 13.5662 16.2583 13.4343 16.3572 13.3371C16.456 13.2398 16.59 13.1852 16.7298 13.1852ZM14.2703 13.1852C14.3977 13.1852 14.5207 13.2306 14.6167 13.3129C14.7127 13.3953 14.7751 13.509 14.7924 13.6332L14.7974 13.7037V18.5432C14.7973 18.6746 14.7466 18.801 14.6554 18.897C14.5643 18.993 14.4395 19.0514 14.3063 19.0604C14.173 19.0693 14.0413 19.0282 13.9377 18.9453C13.8342 18.8624 13.7664 18.7439 13.7482 18.6137L13.7433 18.5432V13.7037C13.7433 13.5662 13.7988 13.4343 13.8977 13.3371C13.9965 13.2398 14.1306 13.1852 14.2703 13.1852ZM15.5001 9.03704C15.1915 9.03705 14.8941 9.15123 14.6671 9.35691C14.4401 9.5626 14.2999 9.84475 14.2746 10.1474L14.2703 10.2469H16.7298C16.7298 9.92603 16.6003 9.6183 16.3696 9.3914C16.139 9.16451 15.8262 9.03704 15.5001 9.03704Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

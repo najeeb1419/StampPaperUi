@@ -1,0 +1,250 @@
+<div class="create-leads-container">
+    <div class="new-leads-layout">
+        <div class="new-lead-title">
+            <span class="title" routerLink="leads">Dashboard</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="" d="m14.83 11.29l-4.24-4.24a1 1 0 0 0-1.42 0a1 1 0 0 0 0 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41a1 1 0 0 0 .71.29a1 1 0 0 0 .71-.29l4.24-4.24a1 1 0 0 0 0-1.42Z"/></svg>
+            <span class="new-lead-content">New Lead</span>
+        </div>
+        <div class="create-form-start">
+            <div class="form-title">
+                <span>Profile</span>
+            </div>
+            <div class="form-container">
+                <div id="create-lead">
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="new-lead-input">
+                                    <label for="Status">Status</label>
+                                    <select name="status" id="status">
+                                        <option value="0"></option>
+                                        <option value="1">New Arrival</option>
+                                        <option value="2">Interested</option>
+                                        <option value="3">Not Interested</option>
+                                        <option value="3">Customer</option>
+                                        <option value="3">Lost Leads</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="new-lead-input">
+                                    <label for="Source">Source</label>
+                                    <select name="source" id="source">
+                                        <option value="0"></option>
+                                        <option value="1">Google</option>
+                                        <option value="2">Facebook</option>
+                                        <option value="3">Izla Technologies official Website</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="new-lead-input">
+                                    <label for="Assigned">Assigned</label>
+                                    <select name="Assigned" id="Assigned">
+                                        <option value="0"></option>
+                                        <option value="1">Jason</option>
+                                        <option value="2">Alex</option>
+                                        <option value="3">Fred</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-center">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" value="name">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="Position">Position</label>
+                                        <input type="text" name="position" id="position">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="Address">Address</label>
+                                        <input type="text" name="address" id="address">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="City">City</label>
+                                        <select name="city" id="city">
+                                            <option value="0"></option>
+                                            <option value="1">Lahore</option>
+                                            <option value="2">Karachi</option>
+                                            <option value="3">Islamabad</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="Email Address">Email Address</label>
+                                        <input type="email" name="email" id="email">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="state">State</label>
+                                        <input type="text" name="state" id="state">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="website">Website</label>
+                                        <input type="url" name="website" id="website">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="country">Country</label>
+                                        <select name="country" id="country">
+                                            <option value="0"></option>
+                                            <option value="1">Pakistan</option>
+                                            <option value="2">India</option>
+                                            <option value="3">Canada</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="Phone">Phone</label>
+                                        <input type="tel" name="phone" id="phone">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="zip-code">Zip Code</label>
+                                        <input type="number" name="zip-code" id="zip-code">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="company">Company</label>
+                                        <input type="text" name="company" id="company">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="new-lead-input">
+                                        <label for="description">Description</label>
+                                        <textarea rows="4" cols="50" name="comment" form="usrform"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="checkboxes d-flex">
+                                        <div class="new-lead-checkbox">
+                                            <input type="checkbox" name="public" id="public">
+                                            <label class="checkbox-label" for="Public">Public</label>
+                                        </div>
+                                        <div class="new-lead-checkbox">
+                                            <input type="checkbox" name="contacted-today" id="contacted-today">
+                                            <label class="checkbox-label" for="Contacted Today">Contacted Today</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="IBO Business ID">IBO Business ID</label>
+                                        <input type="text" name="ibo-business-id" id="ibo-business-id">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="Business Type">Business Type</label>
+                                        <select name="business-type" id="business-type">
+                                            <option value="0"></option>
+                                            <option value="1">Pakistan</option>
+                                            <option value="2">India</option>
+                                            <option value="3">Canada</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="new-lead-input">
+                                        <label for="Business Number">Business Number</label>
+                                        <input type="tel" name="business-number" id="business-number">
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div class="new-lead-input">
+                                        <label for="Preferred Time for Callback">Preferred Time for Callback</label>
+                                        <select name="business-type" id="business-type">
+                                            <option value="0"></option>
+                                            <option value="1"></option>
+                                            <option value="2"></option>
+                                            <option value="3"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-title">
+                                        <span>Services</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="services-checkboxes">
+                                <div class="checkboxes d-flex">
+                                    <div class="new-lead-checkbox">
+                                        <input type="checkbox" name="graphic-design" id="graphic-design">
+                                        <label class="Graphic Design" for="Public">Graphic Design</label>
+                                    </div>
+                                    <div class="new-lead-checkbox">
+                                        <input type="checkbox" name="ui/ux-design" id="ui/ux-design">
+                                        <label class="checkbox-label" for="UI/UX Design">UI/UX Design</label>
+                                    </div>
+                                    <div class="new-lead-checkbox">
+                                        <input type="checkbox" name="web-design" id="web-design">
+                                        <label class="checkbox-label" for="Web Design">Web Design</label>
+                                    </div>
+                                    <div class="new-lead-checkbox">
+                                        <input type="checkbox" name="mobile-apps" id="mobile-apps">
+                                        <label class="checkbox-label" for="Mobile Apps">Mobile Apps</label>
+                                    </div>
+                                    <div class="new-lead-checkbox">
+                                        <input type="checkbox" name="pay-per-click" id="pay-per-click">
+                                        <label class="checkbox-label" for="Pay Per Click">Pay Per Click</label>
+                                    </div>
+                                </div>
+                                <div class="checkboxes checkbox-inner d-flex">
+                                    <div class="new-lead-checkbox new-lead-checkbox-1">
+                                        <input type="checkbox" name="email-marketing" id="email-marketing">
+                                        <label class="Graphic Design" for="Email Marketing">Email Marketing</label>
+                                    </div>
+                                    <div class="new-lead-checkbox new-lead-checkbox-2">
+                                        <input type="checkbox" name="adwords" id="adwords">
+                                        <label class="checkbox-label" for="Adwords">Adwords</label>
+                                    </div>
+                                    <div class="new-lead-checkbox new-lead-checkbox-3">
+                                        <input type="checkbox" name="digital-marketing" id="digital-marketing">
+                                        <label class="checkbox-label" for="Digital marketing">Digital marketing</label>
+                                    </div>
+                                    <div class="new-lead-checkbox new-lead-checkbox-4">
+                                        <input type="checkbox" name="seo" id="seo">
+                                        <label class="checkbox-label" for="SEO">SEO</label>
+                                    </div>
+                                </div>
+                                <div class="checkboxes checkbox-inner d-flex">
+                                    <div class="new-lead-checkbox new-lead-checkbox-5">
+                                        <input type="checkbox" name="confirm" id="confirm">
+                                        <label class="Graphic Design" for="I confirm that I am authorised to request a quote on behalf of this business.">I confirm that I am authorised to request a quote on behalf of this business.</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="new-lead-buttons">
+                            <div class="cancel">
+                                <button>Cancel</button>
+                            </div>
+                            <div class="submit">
+                                <button>Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

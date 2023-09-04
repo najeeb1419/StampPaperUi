@@ -1,0 +1,1066 @@
+/* You can add global styles to this file, and also import other style files */
+
+// root font family
+$poppins: 'Poppins',
+sans-serif;
+@mixin allPagesTitle() {
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-weight: 500;
+    color: #19274B;
+    cursor: pointer;
+}
+
+@mixin AngleLeft() {
+    fill: #008ACF;
+}
+
+@mixin allNewPagesTitle() {
+    font-size: 12px;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    font-weight: 500;
+    color: #008ACF;
+    cursor: pointer;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $poppins;
+}
+
+#izla-crm {
+    .izla-crm-container {
+        display: flex;
+        // position: relative;
+        .sidebar {
+            flex: 2;
+            background: #161624;
+            color: white;
+            height: 121vh;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0%;
+            padding: 30px 20px;
+            .sidebar-container {
+                display: flex;
+                // align-items: center;
+                justify-content: space-between;
+                height: 100%;
+                flex-direction: column;
+                .logo {
+                    text-align: center;
+                    position: relative;
+                    &:before {
+                        position: absolute;
+                        content: "";
+                        top: auto;
+                        bottom: -5px;
+                        right: auto;
+                        left: auto;
+                        height: 2px;
+                        width: 160.11px;
+                        background: #2A273B;
+                    }
+                }
+                .sidebar-links {
+                    margin: 30px 0;
+                    ul {
+                        list-style: none;
+                        li {
+                            color: #809FB8;
+                            padding: 12px 10px;
+                            display: flex;
+                            align-items: center;
+                            cursor: pointer;
+                            .sidebar-dashboard-icon {
+                                fill: #809FB8;
+                                display: flex;
+                            }
+                            span {
+                                padding-left: 15px;
+                                font-weight: 400;
+                                font-size: 15px;
+                            }
+                            .accounts-and-finance {
+                                position: absolute;
+                                width: 180px;
+                                right: 7px;
+                            }
+                        }
+                        .active {
+                            color: white;
+                            position: relative;
+                            &:before {
+                                position: absolute;
+                                content: "";
+                                top: 2px;
+                                right: auto;
+                                left: -12px;
+                                bottom: 0;
+                                width: 6px;
+                                height: 47px;
+                                background: #008ACF;
+                                border-radius: 10px;
+                            }
+                            .sidebar-dashboard-icon {
+                                fill: white;
+                            }
+                            .accounts-and-finance {
+                                position: absolute;
+                                width: 180px;
+                                left: 25px;
+                            }
+                        }
+                    }
+                }
+                .sidebar-bottom {
+                    .sidebar-company {
+                        background-image: url(../src/assets/img/sidebar-bottom.png);
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        height: 177.21px;
+                        width: 197px;
+                        position: relative;
+                        display: flex;
+                        align-items: flex-end;
+                        justify-content: center;
+                        .company-name {
+                            p {
+                                background: white;
+                                color: #008ACF;
+                                font-family: Poppins;
+                                font-size: 12px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: normal;
+                                border-radius: 12px;
+                                padding: 8px 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .crm-right {
+            flex: 12;
+            // height: 200vh;
+            .navbar-top {
+                box-shadow: 0px 0px 4px 0px #00000030;
+                padding: 7px 25px;
+                .nav-main {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .nav-left {
+                        .nav-msg-author {
+                            font-weight: 700;
+                            font-size: 16px;
+                            font-family: 'Poppins';
+                        }
+                        .nav-welcome-msg {
+                            color: #828282;
+                            font-size: 13px;
+                        }
+                    }
+                    .nav-right {
+                        display: flex;
+                        align-items: center;
+                        .notifications {
+                            padding: 0 20px;
+                        }
+                        .profile {
+                            padding: 0 32px 0 0;
+                            .user-profile {
+                                .user-icon {
+                                    display: flex;
+                                    align-items: center;
+                                    .ng-fa-icon {
+                                        padding-left: 14px;
+                                        font-size: 12px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .crm-routes {
+                .leads-main-container {
+                    padding: 30px 30px 20px 40px;
+                    .newLeads-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .leads-title h6 {
+                            font-size: 16px;
+                            font-family: $poppins;
+                            margin: 0;
+                            font-weight: 500;
+                        }
+                        .leads-container {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            .new-leads button {
+                                border-radius: 4px;
+                                background: #008ACF;
+                                padding: 5px 10px;
+                                font-size: 14px;
+                                color: white;
+                                border: none;
+                            }
+                            .import-leads button {
+                                border-radius: 4px;
+                                background: #77D791;
+                                padding: 5px 10px;
+                                font-size: 14px;
+                                color: white;
+                                border: none;
+                            }
+                            .filter-leads button {
+                                border-radius: 4px;
+                                background: #F4F8F9;
+                                padding: 5px 10px;
+                                font-size: 14px;
+                                border: none;
+                            }
+                        }
+                    }
+                    .all-leads-component {
+                        margin-top: 40px;
+                        .all-leads-title {
+                            h6 {
+                                font-size: 16px;
+                                font-family: $poppins;
+                                margin: 0;
+                                font-weight: 500;
+                                padding-bottom: 15px;
+                            }
+                        }
+                        .leads-list {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            gap: 10px;
+                            .new-arrival {
+                                border-radius: 8px;
+                                background: #FEFEFE;
+                                box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+                                padding: 15px;
+                                .total-leads-container {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    width: 100%;
+                                    gap: 130px;
+                                    margin-bottom: 30px;
+                                }
+                                .title {
+                                    color: #8A9DAF;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 16px;
+                                }
+                            }
+                            .interested {
+                                border-radius: 8px;
+                                background: #FEFEFE;
+                                box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+                                padding: 15px;
+                                .interested-container {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    width: 100%;
+                                    gap: 130px;
+                                    margin-bottom: 30px;
+                                }
+                                .title {
+                                    color: #8A9DAF;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 16px;
+                                }
+                            }
+                            .not-interested {
+                                border-radius: 8px;
+                                background: #FEFEFE;
+                                box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+                                padding: 15px;
+                                .not-interested-container {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    width: 100%;
+                                    gap: 130px;
+                                    margin-bottom: 30px;
+                                }
+                                .title {
+                                    color: #8A9DAF;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 16px;
+                                }
+                            }
+                            .customer {
+                                border-radius: 8px;
+                                background: #FEFEFE;
+                                box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+                                padding: 15px;
+                                .customer-container {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    width: 100%;
+                                    gap: 130px;
+                                    margin-bottom: 30px;
+                                }
+                                .title {
+                                    color: #8A9DAF;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 16px;
+                                }
+                            }
+                            .lost-leads {
+                                border-radius: 8px;
+                                background: #FEFEFE;
+                                box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+                                padding: 15px;
+                                .lost-leads-container {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    width: 100%;
+                                    gap: 130px;
+                                    margin-bottom: 30px;
+                                }
+                                .title {
+                                    color: #8A9DAF;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 400;
+                                    line-height: 16px;
+                                }
+                            }
+                        }
+                    }
+                    .main-table {
+                        .table-top {
+                            display: flex;
+                            padding: 15px 26px;
+                            justify-content: space-between;
+                            align-items: center;
+                            .calendar {
+                                span {
+                                    color: #008ACF;
+                                    font-size: 16px;
+                                    font-weight: 600;
+                                }
+                            }
+                            .search {
+                                width: 391px;
+                                height: 38px;
+                                display: flex;
+                                border-radius: 4px;
+                                background: #FFF;
+                                align-items: center;
+                                box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08);
+                                overflow: hidden;
+                                input {
+                                    width: 100%;
+                                    border: none;
+                                    padding: 5px 10px;
+                                    color: #92929D;
+                                    font-size: 14px;
+                                    font-weight: 400;
+                                    &:focus-visible {
+                                        outline: none;
+                                    }
+                                }
+                                i {
+                                    padding: 8px 10px 8px 13px;
+                                    background-color: #008ACF;
+                                    color: white;
+                                    border-top-right-radius: 4px;
+                                    border-bottom-right-radius: 4px;
+                                }
+                            }
+                        }
+                        .mat-elevation-z8 {
+                            border-radius: 4px;
+                            background: #FFF;
+                            box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+                            .mat-mdc-table {
+                                .mdc-data-table__content {
+                                    .mdc-data-table__row {
+                                        border-radius: 4px;
+                                        border: 2px solid #F0F0F0;
+                                        ;
+                                        &:hover {
+                                            background: #008ACF0D;
+                                            border-radius: 4px;
+                                            cursor: pointer;
+                                            border: 3px solid #008acfb0;
+                                        }
+                                    }
+                                }
+                            }
+                            .mat-mdc-paginator {
+                                .mat-mdc-paginator-outer-container {
+                                    .mat-mdc-paginator-container {
+                                        justify-content: space-between;
+                                        padding: 0 26px;
+                                        margin: 10px 0 0;
+                                        .mat-mdc-paginator-page-size {
+                                            .mat-mdc-paginator-page-size-label {
+                                                color: #7C7F85;
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .login-main-container {
+                    display: flex;
+                    height: 100vh;
+                    .login-page-left {
+                        flex: 8;
+                        background: #161624;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .login-start {
+                        flex: 4;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .login-form-container {
+                            .title {
+                                text-align: center;
+                                color: #23262F;
+                                font-family: $poppins;
+                                font-size: 16px;
+                                font-weight: 700;
+                                line-height: 40px;
+                                margin-bottom: 15px;
+                            }
+                            .form-start {
+                                .login-form-start {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    .login-btn {
+                                        text-align: center;
+                                        button {
+                                            border-radius: 4px;
+                                            background: #008ACF;
+                                            color: #FFF;
+                                            font-size: 16px;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            border: none;
+                                            line-height: 24px;
+                                            padding: 10px 25px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .create-leads-container {
+                    @extend .leads-main-container;
+                    background: #FFF;
+                    .new-leads-layout {
+                        .new-lead-title {
+                            .title {
+                                font-size: 15px;
+                                font-family: $poppins;
+                                margin: 0;
+                                font-weight: 500;
+                                color: #19274B;
+                                cursor: pointer;
+                            }
+                            svg {
+                                fill: #008ACF;
+                            }
+                            .new-lead-content {
+                                font-size: 15px;
+                                font-family: $poppins;
+                                margin: 0;
+                                font-weight: 500;
+                                color: #008ACF;
+                            }
+                        }
+                        .create-form-start {
+                            border-radius: 4px;
+                            background: #FFF;
+                            margin: 40px 0;
+                            padding: 40px;
+                            .form-title {
+                                color: #008ACF;
+                                font-size: 20px;
+                                font-weight: 600;
+                            }
+                            .form-container {
+                                margin: 40px 0;
+                                #create-lead {
+                                    form {
+                                        .new-lead-input {
+                                            position: relative;
+                                            input {
+                                                border-radius: 4px;
+                                                border: 1px solid rgba(196, 196, 196, 0.50);
+                                                position: relative;
+                                                width: 100%;
+                                                height: 32px;
+                                                padding: 0 10px;
+                                                &:focus-visible {
+                                                    border: 1px solid #008ACF;
+                                                    outline: none;
+                                                }
+                                            }
+                                            select {
+                                                border-radius: 4px;
+                                                border: 1px solid rgba(196, 196, 196, 0.50);
+                                                position: relative;
+                                                width: 100%;
+                                                height: 32px;
+                                                padding: 0 10px;
+                                                &:focus-visible {
+                                                    border: 1px solid #008ACF;
+                                                    outline: none;
+                                                }
+                                            }
+                                            textarea {
+                                                @extend select;
+                                                height: auto;
+                                                padding: 10px;
+                                            }
+                                            label {
+                                                position: absolute;
+                                                top: -11px;
+                                                z-index: 1;
+                                                left: 1em;
+                                                background-color: white;
+                                                padding: 0 5px;
+                                                color: #000;
+                                                font-size: 15px;
+                                            }
+                                        }
+                                        .form-center {
+                                            padding: 40px 0;
+                                            .col-8,
+                                            .col-4 {
+                                                padding: 20px 10px;
+                                            }
+                                            .col-12 {
+                                                padding: 20px 10px;
+                                                .checkboxes.d-flex {
+                                                    .new-lead-checkbox {
+                                                        padding: 0 5px;
+                                                        label {
+                                                            padding-left: 5px;
+                                                            color: #000;
+                                                            font-size: 14px;
+                                                            line-height: 28.971px;
+                                                            /* 206.935% */
+                                                            letter-spacing: 0.852px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .services-checkboxes {
+                                                .checkboxes {
+                                                    column-count: 5;
+                                                    .new-lead-checkbox {
+                                                        padding: 10px 5px;
+                                                        label {
+                                                            padding-left: 5px;
+                                                            color: #000;
+                                                            font-size: 14px;
+                                                            line-height: 28.971px;
+                                                            /* 206.935% */
+                                                            letter-spacing: 0.852px;
+                                                        }
+                                                    }
+                                                }
+                                                .checkboxes.checkbox-inner.d-flex {
+                                                    padding: 20px 0;
+                                                    .new-lead-checkbox-1 {
+                                                        flex: 2;
+                                                    }
+                                                    .new-lead-checkbox-2 {
+                                                        flex: 2;
+                                                    }
+                                                    .new-lead-checkbox-3 {
+                                                        flex: 2;
+                                                    }
+                                                    .new-lead-checkbox-4 {
+                                                        flex: 4;
+                                                    }
+                                                    .new-lead-checkbox-5 {
+                                                        color: #000;
+                                                        font-size: 14px;
+                                                        font-weight: 500;
+                                                        line-height: 28.971px;
+                                                        /* 206.935% */
+                                                        letter-spacing: 0.852px;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .new-lead-buttons {
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: flex-end;
+                                            .cancel {
+                                                padding-right: 20px;
+                                                button {
+                                                    border-radius: 4px;
+                                                    color: #008ACF;
+                                                    border: 1px solid #008ACF;
+                                                    background-color: #FFF;
+                                                    font-size: 15px;
+                                                    font-weight: 400;
+                                                    padding: 8px 14px;
+                                                }
+                                            }
+                                            .submit {
+                                                button {
+                                                    border-radius: 4px;
+                                                    background: #008ACF;
+                                                    color: #FFF;
+                                                    font-size: 16px;
+                                                    font-weight: 400;
+                                                    padding: 9px 22px;
+                                                    border: 1px solid #008ACF;
+                                                }
+                                            }
+                                        }
+                                        .others {
+                                            .col-4 {
+                                                .submit {
+                                                    margin-top: 17px;
+                                                    button {
+                                                        border-radius: 4px;
+                                                        background: #008ACF;
+                                                        color: #FFF;
+                                                        font-size: 15px;
+                                                        font-weight: 400;
+                                                        padding: 6px 16px;
+                                                        border: 1px solid #008ACF;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .lead-profile-container {
+                    @extend .create-leads-container;
+                    .lead-profile-layout {
+                        .lead-profile-title {
+                            .title {
+                                @include allPagesTitle();
+                            }
+                            svg {
+                                @include AngleLeft();
+                            }
+                            .lead-profile-content {
+                                @include allNewPagesTitle();
+                            }
+                        }
+                        .profile-start {
+                            #lead-profile {
+                                .profile-tabs {
+                                    .mat-mdc-tab-group {
+                                        .mat-mdc-tab-header {
+                                            border-radius: 4px;
+                                            background: #EAEEF5;
+                                            .mat-mdc-tab-label-container {
+                                                .mat-mdc-tab-list {
+                                                    .mat-mdc-tab-labels {
+                                                        // border-bottom: 3px solid #DFE5EB;
+                                                        .mat-mdc-tab {
+                                                            padding-left: 15px;
+                                                            padding-right: 15px;
+                                                            .mdc-tab__content {
+                                                                .mdc-tab__text-label {
+                                                                    color: rgba(22, 22, 36, 0.575);
+                                                                    font-weight: 500;
+                                                                    font-family: $poppins;
+                                                                    font-size: 15px;
+                                                                }
+                                                            }
+                                                        }
+                                                        .mdc-tab--active {
+                                                            border-radius: 4px;
+                                                            background: #008ACF;
+                                                            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                                                            .mdc-tab__content {
+                                                                .mdc-tab__text-label {
+                                                                    color: #FFF;
+                                                                }
+                                                            }
+                                                            .mdc-tab-indicator {
+                                                                top: 2px;
+                                                                display: none;
+                                                                .mdc-tab-indicator__content.mdc-tab-indicator__content--underline {
+                                                                    border-color: #008ACF;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .mat-mdc-tab-body-wrapper {
+                                            margin: 30px 0;
+                                            .mat-mdc-tab-body {
+                                                .mat-mdc-tab-body-content {
+                                                    .lead-info-container {
+                                                        .lead-info-btns {
+                                                            justify-content: flex-end;
+                                                            gap: 10px;
+                                                            align-items: center;
+                                                            .info-edit-delete-btns {
+                                                                background: #4BDE97;
+                                                                gap: 10px;
+                                                                border-radius: 4px;
+                                                                padding: 10px 12px;
+                                                                cursor: pointer;
+                                                                button {
+                                                                    border: none;
+                                                                    background: #4BDE97;
+                                                                    color: white;
+                                                                    font-size: 16px;
+                                                                    border-right: 1px solid white;
+                                                                    padding-right: 10px;
+                                                                }
+                                                                .edit-btn {
+                                                                    border-right: none;
+                                                                    padding-right: 0;
+                                                                }
+                                                            }
+                                                            .lead-info-convert {
+                                                                background: #008ACF;
+                                                                gap: 10px;
+                                                                border-radius: 4px;
+                                                                padding: 10px 12px;
+                                                                cursor: pointer;
+                                                                button {
+                                                                    border: none;
+                                                                    background: #008ACF;
+                                                                    color: white;
+                                                                }
+                                                            }
+                                                            .lead-info-more {
+                                                                background: #FBB123;
+                                                                gap: 10px;
+                                                                border-radius: 4px;
+                                                                padding: 3px 12px;
+                                                                cursor: pointer;
+                                                                button {
+                                                                    color: white;
+                                                                    font-family: $poppins;
+                                                                    font-weight: 400;
+                                                                }
+                                                            }
+                                                        }
+                                                        .lead-info-start {
+                                                            padding: 60px 0;
+                                                            .mat-accordion-multi {
+                                                                .mat-expansion-panel {
+                                                                    padding: 10px;
+                                                                    .mat-expansion-panel-header {
+                                                                        .mat-content {
+                                                                            .mat-expansion-panel-header-title {
+                                                                                span {
+                                                                                    color: #000;
+                                                                                    font-size: 19px;
+                                                                                    font-weight: 500;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        .mat-expansion-indicator {
+                                                                            height: 26px;
+                                                                            width: 26px;
+                                                                            border-radius: 50%;
+                                                                            background: #008ACF;
+                                                                            display: flex;
+                                                                            align-items: center;
+                                                                            justify-content: center;
+                                                                            &::after {
+                                                                                color: white;
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    .mat-expansion-panel-content {
+                                                                        .mat-expansion-panel-body {
+                                                                            padding: 20px 24px;
+                                                                            .lead-info-content {
+                                                                                display: flex;
+                                                                                .lead-info-items {
+                                                                                    flex: 3;
+                                                                                    .lead-info-name {
+                                                                                        .name {
+                                                                                            color: #008ACF;
+                                                                                            font-size: 14px;
+                                                                                            font-weight: 500;
+                                                                                            line-height: 28.971px;
+                                                                                            letter-spacing: 0.852px;
+                                                                                        }
+                                                                                        .lead-name {
+                                                                                            padding-left: 11px;
+                                                                                            color: #000;
+                                                                                            font-size: 14px;
+                                                                                            font-weight: 400;
+                                                                                            line-height: 28.971px;
+                                                                                            letter-spacing: 0.852px;
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                                .zip-code {
+                                                                                    flex: 3;
+                                                                                }
+                                                                                .description {
+                                                                                    flex: 12;
+                                                                                }
+                                                                                .web-to-lead-form {
+                                                                                    flex: 9;
+                                                                                }
+                                                                            }
+                                                                            .latest-activity {
+                                                                                p {
+                                                                                    color: #000;
+                                                                                    font-size: 14px;
+                                                                                    font-weight: 400;
+                                                                                    letter-spacing: 0.852px;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .profile-left {
+                            border-radius: 4px;
+                            background: #FCFCFC;
+                            box-shadow: 0px 0px 2px 0px rgb(0 0 0 / 20%);
+                            .user-profile {
+                                padding: 40px 15px;
+                                .profile-img {
+                                    text-align: center;
+                                    img {
+                                        width: 60px;
+                                        height: 60px;
+                                        border-radius: 50%;
+                                    }
+                                }
+                            }
+                            .user-title {
+                                h4 {
+                                    color: #000;
+                                    font-size: 16px;
+                                    font-weight: 700;
+                                    padding: 15px 0 10px;
+                                    margin-bottom: 0;
+                                }
+                            }
+                            .user-last-contacted {
+                                p {
+                                    color: #828282;
+                                    font-size: 11px;
+                                    font-weight: 400;
+                                    position: relative;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    &::after {
+                                        position: absolute;
+                                        content: "";
+                                        top: auto;
+                                        left: 0;
+                                        right: 0;
+                                        bottom: auto;
+                                        height: 6px;
+                                        width: 6px;
+                                        background-color: #008ACF;
+                                        border-radius: 50%;
+                                    }
+                                }
+                            }
+                            .convert-customer-btn {
+                                button {
+                                    border-radius: 4px;
+                                    background: #008ACF;
+                                    color: #FFF;
+                                    font-size: 14px;
+                                    font-weight: 400;
+                                    border: none;
+                                    padding: 10px 50px;
+                                    margin-top: 20px;
+                                }
+                            }
+                            .profile-left-tabs {
+                                .mat-mdc-tab-group {
+                                    .mat-mdc-tab-header {
+                                        .mat-mdc-tab-label-container {
+                                            .mat-mdc-tab-list {
+                                                .mat-mdc-tab-labels {
+                                                    .mdc-tab-indicator--active {
+                                                        .mdc-tab__content {
+                                                            .mdc-tab__text-label {
+                                                                color: #19274B;
+                                                                font-size: 14px;
+                                                                font-weight: 500;
+                                                            }
+                                                        }
+                                                        .mdc-tab-indicator {
+                                                            .mdc-tab-indicator__content {
+                                                                border-color: #008ACF;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .mat-mdc-tab-body-wrapper {
+                                        .mat-mdc-tab-body {
+                                            .mat-mdc-tab-body-content {
+                                                .lead-info-content {
+                                                    .lead-info-items {
+                                                        padding: 15px 0px;
+                                                        .lead-info-name {
+                                                            .name {
+                                                                color: #008ACF;
+                                                                font-size: 14px;
+                                                                font-weight: 500;
+                                                                line-height: 28.971px;
+                                                                letter-spacing: 0.852px;
+                                                            }
+                                                            .lead-name {
+                                                                padding-left: 11px;
+                                                                color: #000;
+                                                                font-size: 14px;
+                                                                font-weight: 400;
+                                                                line-height: 28.971px;
+                                                                letter-spacing: 0.852px;
+                                                            }
+                                                        }
+                                                    }
+                                                    .zip-code {
+                                                        flex: 3;
+                                                    }
+                                                    .description {
+                                                        flex: 12;
+                                                    }
+                                                    .web-to-lead-form {
+                                                        flex: 9;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .profile-right {
+                            .mat-accordion {
+                                .mat-expansion-panel {
+                                    .mat-expansion-panel-header {
+                                        .mat-content {
+                                            .mat-expansion-panel-header-title {
+                                                span {
+                                                    color: #19274B;
+                                                    font-size: 14px;
+                                                    font-weight: 500;
+                                                }
+                                            }
+                                            .mat-expansion-panel-header-description {
+                                                color: rgba(22, 22, 36, 0.50);
+                                                font-size: 11px;
+                                                font-weight: 400;
+                                            }
+                                        }
+                                        .mat-expansion-panel-header-description {
+                                            flex-grow: 0;
+                                        }
+                                        .mat-expansion-indicator {
+                                            // height: 26px;
+                                            // width: 26px;
+                                            // border-radius: 50%;
+                                            // background: #008ACF;
+                                            // display: flex;
+                                            // align-items: center;
+                                            // justify-content: center;
+                                            &::after {
+                                                color: #23262F;
+                                            }
+                                        }
+                                    }
+                                    .mat-expansion-panel-content {
+                                        .mat-expansion-panel-body {
+                                            padding-left: 5px;
+                                            padding-right: 0;
+                                            .lead-info-content {
+                                                .lead-info-items {
+                                                    padding: 15px 0px;
+                                                    .lead-info-name {
+                                                        .name {
+                                                            color: #008ACF;
+                                                            font-size: 14px;
+                                                            font-weight: 500;
+                                                            line-height: 28.971px;
+                                                            letter-spacing: 0.852px;
+                                                        }
+                                                        .lead-name {
+                                                            padding-left: 11px;
+                                                            color: #000;
+                                                            font-size: 14px;
+                                                            font-weight: 400;
+                                                            line-height: 28.971px;
+                                                            letter-spacing: 0.852px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

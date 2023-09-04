@@ -1,0 +1,600 @@
+<div class="lead-profile-container" *ngIf="leadProfileDetail">
+  <div class="lead-profile-layout">
+    <div class="lead-profile-title">
+      <span class="title" routerLink="/">Dashboard</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill=""
+          d="m14.83 11.29l-4.24-4.24a1 1 0 0 0-1.42 0a1 1 0 0 0 0 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41a1 1 0 0 0 .71.29a1 1 0 0 0 .71-.29l4.24-4.24a1 1 0 0 0 0-1.42Z"
+        />
+      </svg>
+      <span class="lead-profile-content" routerLink="leads">Leads</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill=""
+          d="m14.83 11.29l-4.24-4.24a1 1 0 0 0-1.42 0a1 1 0 0 0 0 1.41L12.71 12l-3.54 3.54a1 1 0 0 0 0 1.41a1 1 0 0 0 .71.29a1 1 0 0 0 .71-.29l4.24-4.24a1 1 0 0 0 0-1.42Z"
+        />
+      </svg>
+      <span class="lead-profile-content">profile</span>
+    </div>
+    <div class="container-fluid mt-5">
+      <div class="row">
+        <div class="col-3">
+          <div class="profile-left">
+            <div class="user-profile text-center">
+              <div class="profile-img">
+                <img
+                  src="../../../assets/img/user-profile.jpeg"
+                  class="img-fluid"
+                  alt="User-Icon"
+                />
+              </div>
+              <div class="user-title">
+                <h4>Emma Copper</h4>
+              </div>
+              <div class="user-last-contacted">
+                <p>Last contacted 02 Jan 2023 at 09:20 PM</p>
+              </div>
+              <div class="convert-customer-btn">
+                <button>Convert to Customer</button>
+              </div>
+            </div>
+            <div class="profile-left-tabs">
+              <mat-tab-group>
+                <mat-tab label="Leads Info">
+                  <div class="lead-info-content ps-3 pt-3 pb-3">
+                    <div class="lead-info-items">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="6"
+                            height="6"
+                            viewBox="0 0 6 6"
+                            fill="none"
+                          >
+                            <circle cx="3" cy="3" r="3" fill="#008ACF" />
+                          </svg>
+                          <span class="ps-2">Name</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.Name}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items position">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="6"
+                            height="6"
+                            viewBox="0 0 6 6"
+                            fill="none"
+                          >
+                            <circle cx="3" cy="3" r="3" fill="#008ACF" />
+                          </svg>
+                          <span class="ps-2">Position</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{ leadProfileDetail.Position }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Email Address">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="6"
+                            height="6"
+                            viewBox="0 0 6 6"
+                            fill="none"
+                          >
+                            <circle cx="3" cy="3" r="3" fill="#008ACF" />
+                          </svg>
+                          <span class="ps-2">Email Address</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{ leadProfileDetail.EmailAddress }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Website">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="6"
+                            height="6"
+                            viewBox="0 0 6 6"
+                            fill="none"
+                          >
+                            <circle cx="3" cy="3" r="3" fill="#008ACF" />
+                          </svg>
+                          <span class="ps-2">Website</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{ leadProfileDetail.Website }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Phone">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="6"
+                            height="6"
+                            viewBox="0 0 6 6"
+                            fill="none"
+                          >
+                            <circle cx="3" cy="3" r="3" fill="#008ACF" />
+                          </svg>
+                          <span class="ps-2">Phone</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{ leadProfileDetail.PhoneNo }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Company">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="6"
+                            height="6"
+                            viewBox="0 0 6 6"
+                            fill="none"
+                          >
+                            <circle cx="3" cy="3" r="3" fill="#008ACF" />
+                          </svg>
+                          <span class="ps-2">Company</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{ leadProfileDetail.Company }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items description">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="6"
+                            height="6"
+                            viewBox="0 0 6 6"
+                            fill="none"
+                          >
+                            <circle cx="3" cy="3" r="3" fill="#008ACF" />
+                          </svg>
+                          <span class="ps-2">Description</span>
+                        </div>
+                        <div class="lead-name ps-2">
+                          <span>{{ leadProfileDetail.Description }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Address Info">
+                  <div class="lead-info-content ps-3 pt-3 pb-3">
+                    <div class="lead-info-items State">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">State</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.State}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Country">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Country</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.CountryName}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items City">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">City</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.CityName}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items zip-code">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Zip Code</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.ZipCode}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Address">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Address</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.Address}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="profile-start">
+            <div id="lead-profile">
+              <div class="profile-tabs">
+                <mat-tab-group>
+                  <!-- <mat-tab label="Profile">
+                                        <app-lead-information></app-lead-information>
+                                    </mat-tab> -->
+                  <mat-tab label="Notes"> <app-notes></app-notes> </mat-tab>
+                  <mat-tab label="Proposal">
+                    <app-proposal></app-proposal>
+                  </mat-tab>
+                  <mat-tab label="Task"> Task </mat-tab>
+                  <mat-tab label="Reminders"> Reminders</mat-tab>
+                  <mat-tab label="Activity Log"> Activity Log </mat-tab>
+                </mat-tab-group>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="profile-right">
+            <mat-accordion >
+              <mat-expansion-panel [expanded]="true"  (opened)="generalInfo = true"
+              (closed)="generalInfo = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <span>General Info</span>
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    {{generalInfo ? 'View' : 'Close'}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div>
+                  <div class="lead-info-content ps-3 pt-3 pb-3">
+                    <div class="lead-info-items Status">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Status</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.LeadStatusName}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Source">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Source</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.LeadSourceName}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Default Language">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Default Language</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>Not geting</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Assigned">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Assigned</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>Azeem</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Tags">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Tags</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>Not Getting</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items created">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Created</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.FirstName}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items public">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Public</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.PublicLead}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items web-to-lead-form">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Web to Lead Form</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>not getting</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]="false"  (opened)="customFields = true"
+              (closed)="customFields = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <span>Custom Fields</span>
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    {{customFields ? 'View' : 'Close'}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                  <div class="lead-info-content ps-3 pt-3 pb-3">
+                    <div class="lead-info-items IBO Business ID">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">IBO Business ID</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.IBOBussinessType}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Referred by">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Referred by</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.ReferredBy}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items IBO Email address">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">IBO Email address</span>
+                        </div>
+                        <div class="lead-name">
+                          <span> {{leadProfileDetail.IBOEmailAddress}} </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Business Type"> 
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Business Type</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.BusinessTypeName}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Business Number">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Business Number</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.BusinessNo}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Preferred Time for Callback">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Preferred Time for Callback</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>{{leadProfileDetail.PreferTimeCallBack}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Services">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Services</span>
+                        </div>
+                        <div class="lead-name">
+                          <span>Thomas Cessat</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Declaration">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Declaration</span>
+                        </div>
+                        <div class="lead-name">
+                          <span> {{leadProfileDetail.Declaration}} </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Country">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Country</span>
+                        </div>
+                        <div class="lead-name">
+                          <span> {{leadProfileDetail.CountryName}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-items Secondary Phone Number">
+                      <div class="lead-info-name d-flex flex-column">
+                        <div class="name">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                            <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                          </svg>
+                          <span class="ps-2">Secondary Phone Number</span>
+                        </div>
+                        <div class="lead-name">
+                          <span> {{leadProfileDetail.SecondayPhoneNo}} </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-content pt-3 pb-3">
+                      <div class="lead-info-items Proffered Language">
+                            <div class="lead-info-name d-flex flex-column">
+                              <div class="name">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                                  <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                                </svg>
+                                <span class="ps-2">Proffered Language</span>
+                              </div>
+                              <div class="lead-name">
+                                <span>Thomas Cessat</span>
+                              </div>
+                            </div>
+                      </div>
+                    </div>
+                    <div class="lead-info-content pt-3 pb-3">
+                      <div class="lead-info-items Proffered Language">
+                            <div class="lead-info-name d-flex flex-column">
+                              <div class="name">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
+                                  <circle cx="3" cy="3" r="3" fill="#008ACF"/>
+                                </svg>
+                                <span class="ps-2">Proffered Language</span>
+                              </div>
+                              <div class="lead-name">
+                                <span>{{leadProfileDetail.languageName}}</span>
+                              </div>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+              </mat-expansion-panel>
+              <mat-expansion-panel [expanded]="false"  (opened)="attachments = true"
+              (closed)="attachments = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <span>Attachments</span>
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    {{attachments ? 'View' : 'Close'}}
+                    <mat-icon></mat-icon>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="lead-info-content latest-activity">
+                  <p>New Lead Imported from Web to Lead Form - Lead Form 1</p>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

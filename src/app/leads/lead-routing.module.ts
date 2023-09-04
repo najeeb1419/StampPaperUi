@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { AddNewTaskComponent } from './add-new-task/add-new-task.component';
 import { AccountComponent } from './account/account.component';
+import { ReceiptComponent } from './receipt/receipt.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,9 @@ const routes: Routes = [
   },
   {
     path:'account', component:AccountComponent,
+  },
+  {
+    path:'receipt', component:ReceiptComponent,
   }
 
 

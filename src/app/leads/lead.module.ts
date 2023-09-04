@@ -17,6 +17,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CreateAccountComponent } from './account/create-account/create-account.component';
 import { EditAccountComponent } from './account/edit-account/edit-account.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReceiptComponent } from './receipt/receipt.component';
+import { CreateReceiptComponent } from './receipt/create-receipt/create-receipt.component';
+import { EditReceiptComponent } from './receipt/edit-receipt/edit-receipt.component';
+import { MemberComponent } from './member/member.component';
+import { CreateMemberComponent } from './member/create-member/create-member.component';
+import { EditMemberComponent } from './member/edit-member/edit-member.component';
 
 
 
@@ -34,7 +40,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UploadFileComponent,
     AccountComponent,
     CreateAccountComponent,
-    EditAccountComponent
+    EditAccountComponent,
+    ReceiptComponent,
+    CreateReceiptComponent,
+    EditReceiptComponent,
+    MemberComponent,
+    CreateMemberComponent,
+    EditMemberComponent
 
 
   ],

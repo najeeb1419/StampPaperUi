@@ -12,7 +12,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   selector: 'app-member',
   templateUrl: './member.component.html',
   styleUrls: ['./member.component.css'],
-  animations: [appModuleAnimation()]
 })
 export class MemberComponent  {
 
@@ -58,8 +57,5 @@ export class MemberComponent  {
     modalRef.componentInstance.data = { user};
   }
 
-}
-function appModuleAnimation(): any {
-  throw new Error('Function not implemented.');
 }
 

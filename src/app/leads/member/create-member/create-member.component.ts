@@ -28,7 +28,7 @@ export class CreateMemberComponent  implements OnInit {
   async save() {
     this.saving = true;
 
-    (await this._apiService.putRequest('', this.member)).subscribe(
+    (await this._apiService.putRequest('Member/AddMember', this.member)).subscribe(
       () => {
         // this.notify.info(this.l('SavedSuccessfully'));
         // this.bsModalRef.hide();

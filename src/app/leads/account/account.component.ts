@@ -9,7 +9,6 @@ import { EditAccountComponent } from './edit-account/edit-account.component';
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss'],
-  animations: [appModuleAnimation()]
 })
 export class AccountComponent {
   accounts: AccountModel[] = [];
@@ -90,7 +89,5 @@ export class AccountComponent {
   //   // });
   // }
 }
-function appModuleAnimation(): any {
-  throw new Error('Function not implemented.');
-}
+
 

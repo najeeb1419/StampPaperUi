@@ -7,6 +7,7 @@ import { AuthGuard } from '../auth/auth.guard';
 import { AddNewTaskComponent } from './add-new-task/add-new-task.component';
 import { AccountComponent } from './account/account.component';
 import { ReceiptComponent } from './receipt/receipt.component';
+import { MemberComponent } from './member/member.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,9 @@ const routes: Routes = [
   },
   {
     path:'receipt', component:ReceiptComponent,
+  },
+  {
+    path:'member', component:MemberComponent,
   }
 
 

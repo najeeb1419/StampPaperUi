@@ -6,7 +6,7 @@ import { ApiProxyService } from 'src/app/api-proxy-service';
 @Component({
   selector: 'app-edit-member',
   templateUrl: './edit-member.component.html',
-  styleUrls: ['./edit-member.component.css']
+  styleUrls: ['./edit-member.component.scss']
 })
 
 export class EditMemberComponent  implements OnInit {

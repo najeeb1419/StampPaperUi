@@ -1,19 +1,14 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { ThisReceiver } from '@angular/compiler';
 import { Component, ElementRef, Renderer2, ViewChild, OnInit } from '@angular/core';
-
 import {
   FormBuilder,
   FormGroup,
   FormArray,
   FormControl,
-  ValidatorFn,
   Validators
 } from '@angular/forms';
-import { Route, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { addCityDropDownModel, addDropDownModel } from 'src/app/models/add-DropDown-Model';
-import { SelectItemModel } from 'src/app/models/select-item-model';
+import { Router } from '@angular/router';
+import { addCityDropDownModel, addDropDownModel } from 'src/app/Models/add-DropDown-Model';
+import { SelectItemModel } from 'src/app/Models/select-item-model';
 import { ApiProxyService } from 'src/app/api-proxy-service';
 
 @Component({

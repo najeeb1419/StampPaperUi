@@ -107,7 +107,7 @@ export class NotesComponent implements OnInit {
     };
 
     try {
-      const response = await this.apiService.getRequestByMultipeParams('Note/GetLeadNotes', parameters);
+      const response = await this.apiService.getRequestByMultipleParams('Note/GetLeadNotes', parameters);
       response.subscribe((res) => {
         this.LeadNotes = res;
         console.log(this.LeadNotes);
@@ -115,7 +115,7 @@ export class NotesComponent implements OnInit {
     } catch (error) {
       console.error(error);
     }
-  
+
 
 
 

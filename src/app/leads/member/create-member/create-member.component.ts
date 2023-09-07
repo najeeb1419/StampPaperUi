@@ -13,12 +13,12 @@ export class CreateMemberComponent  implements OnInit {
 
   saving = false;
   member = new MemberDto();
-  @Output() onSave = new EventEmitter<any>();
+  // @Output() onSave = new EventEmitter<any>();
   createMemberFrom: FormGroup;
 
   constructor(
     public _apiService: ApiProxyService,
-    public activeModal: NgbActiveModal,
+    // public activeModal: NgbActiveModal,
     private formBuilder: FormBuilder,
   ) {
   }
@@ -32,7 +32,7 @@ export class CreateMemberComponent  implements OnInit {
       address: [''],
       cnic: [''],
       isActive: [true],
-      tenantId:[null]
+      tenantId:[0]
     });
   }
 
@@ -40,22 +40,16 @@ export class CreateMemberComponent  implements OnInit {
   async save() {
     this.saving = true;
     let tenantId = localStorage.getItem("TenantId");
-
+ console.log( this.createMemberFrom.value);
     this.createMemberFrom.patchValue({
       tenantId: Number(tenantId),
-      name: Number(this.createMemberFrom.value.name),
-      contactNo: Number(this.createMemberFrom.value.contactNo),
-      accountNo: Number(this.createMemberFrom.value.accountNo),
-      address: this.createMemberFrom.value.address,
-      cnic: this.createMemberFrom.value.cnic,
-      isActive: this.createMemberFrom.value.isActive,
    });
 
-    (await this._apiService.putRequest('Member/AddMember', this.createMemberFrom)).subscribe(
+    (await this._apiService.postRequest('Member/AddMember', this.createMemberFrom.value)).toPromise().then(
       () => {
         // this.notify.info(this.l('SavedSuccessfully'));
         // this.bsModalRef.hide();
-        this.onSave.emit();
+        // this.onSave.emit();
       },
       () => {
         this.saving = false;

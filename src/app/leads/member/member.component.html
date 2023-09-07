@@ -6,7 +6,7 @@
                     <h1>Members</h1>
                 </div>
                 <div class="col-6 text-right">
-                    <a href="javascript:;" class="btn bg-blue" (click)="createMember()">
+                    <a class="btn bg-blue" (click)="createMember()">
                         <i class="fa fa-plus-square"></i> Create
                     </a>
                 </div>
@@ -105,11 +105,11 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-sm bg-secondary" (click)="editMember(member)">
+                                        <button type="button" class="btn btn-sm btn-secondary" (click)="editMember(member)">
                                             <i class="fas fa-pencil-alt"></i>
                                             Edit
                                         </button>
-                                        <button type="button" class="btn btn-sm bg-danger mx-2" (click)="delete(member)">
+                                        <button type="button" class="btn btn-sm btn-danger mx-2" (click)="delete(member)">
                                             <i class="fas fa-trash"></i>
                                             Delete
                                         </button>

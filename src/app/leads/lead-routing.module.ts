@@ -8,6 +8,8 @@ import { AddNewTaskComponent } from './add-new-task/add-new-task.component';
 import { AccountComponent } from './account/account.component';
 import { ReceiptComponent } from './receipt/receipt.component';
 import { MemberComponent } from './member/member.component';
+import { CreateMemberComponent } from './member/create-member/create-member.component';
+import { EditMemberComponent } from './member/edit-member/edit-member.component';
 
 
 const routes: Routes = [
@@ -33,6 +35,12 @@ const routes: Routes = [
   },
   {
     path:'member', component:MemberComponent,
+  },
+  {
+    path:'create-member', component:CreateMemberComponent
+  },
+  {
+    path:'edit-member', component:EditMemberComponent
   }
 
 

@@ -6,9 +6,9 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from './environments/environment';
 
-const _API_BASE_URL_ = environment.baseUrl; 
-const toastDuration = 3000; 
-const toastPosition = 'bottom-right'; 
+const _API_BASE_URL_ = environment.baseUrl;
+const toastDuration = 3000;
+const toastPosition = 'bottom-right';
 
 @Injectable({
   providedIn: 'root'
@@ -73,9 +73,11 @@ export class ApiProxyService {
       .get(`${_API_BASE_URL_}${url}`, { headers: await this.addAuthorizationHeader(headers) })
       .pipe(catchError(this.handleError));
   }
-  async getRequestByMultipeParams(url: string, requestParameters: any, headers: { [key: string]: string } = {}): Promise<Observable<any>> {
+
+
+  async getRequestByMultipleParams(url: string, requestParameters: any, headers: { [key: string]: string } = {}): Promise<Observable<any>> {
     const params = new HttpParams({ fromObject: requestParameters });
-  
+
     return this.http
       .get(`${_API_BASE_URL_}${url}`, { headers: await this.addAuthorizationHeader(headers), params })
       .pipe(catchError(this.handleError));
@@ -112,7 +114,7 @@ export class ApiProxyService {
       .pipe(catchError(this.handleError));
   }
 
-  
+
 
   async putWithFilesRequest(url: string, requestParameters: any): Promise<Observable<any>> {
     const headers = await  this.addAuthorizationHeader({});
@@ -121,11 +123,11 @@ export class ApiProxyService {
       .pipe(catchError(this.handleError));
   }
 
-  
+
 
   async deleteRequest(url: string, id: any): Promise<Observable<any>> {
     return this.http
-      .delete(`${_API_BASE_URL_}${url}/${id}`, { headers: await  this.addAuthorizationHeader({}) 
+      .delete(`${_API_BASE_URL_}${url}/${id}`, { headers: await  this.addAuthorizationHeader({})
 })
       .pipe(catchError(this.handleError));
   }

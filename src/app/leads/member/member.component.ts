@@ -5,6 +5,7 @@ import { EditMemberComponent } from './edit-member/edit-member.component';
 import { ApiProxyService } from 'src/app/api-proxy-service';
 import { MemberDto } from 'src/app/Models/MemberDto';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 
 
@@ -22,7 +23,7 @@ export class MemberComponent  {
 
   constructor(
     private _apiService: ApiProxyService,
-    private modalService: NgbModal
+    private router:Router
   ) {
     this.getMembers();
   }
@@ -30,9 +31,9 @@ export class MemberComponent  {
 
 
   async getMembers(){
-    (await this._apiService.getRequest('Member/GetMembers')).subscribe(res=>{
-      this.members = res;
-    })
+   let response =await  (await this._apiService.getRequest('Member/GetMembers')).toPromise();
+      this.members = response as any[];
+
   }
 
 
@@ -46,15 +47,14 @@ export class MemberComponent  {
 
 
   createMember(): void {
-    const modalRef = this.modalService.open(CreateMemberComponent);
-    // You can pass data to the modal using modalRef.componentInstance
-    modalRef.componentInstance.data = { };
+    // const modalRef = this.modalService.open(CreateMemberComponent);
+    // // You can pass data to the modal using modalRef.componentInstance
+    // modalRef.componentInstance.data = { };
+    this.router.navigate(['leads/create-member']);
   }
 
   editMember(user: MemberDto): void {
-    const modalRef = this.modalService.open(EditMemberComponent);
-    // You can pass data to the modal using modalRef.componentInstance
-    modalRef.componentInstance.data = { user};
+    this.router.navigate(['leads/edit-member'], { state: { user } });
   }
 
 }

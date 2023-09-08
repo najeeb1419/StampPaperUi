@@ -1,58 +1,57 @@
 <form [formGroup]="editMemberFrom" (ngSubmit)="save()">
-
-    <div class="row m-5">
-        <h4 class="modal-title">
-            Create Member</h4>
-        <div class="col-md-6 required">
-            <label class="col-form-label" for="name">
+    <div class="card m-2">
+        <div class="row m-5">
+            <h4 class="modal-title">
+                Create Customer</h4>
+            <div class="col-md-6 required">
+                <label class="col-form-label" for="name">
         Name
       </label>
-            <input type="text" class="form-control" formControlName="name" id="name" />
-        </div>
+                <input type="text" class="form-control" formControlName="name" id="name" />
+            </div>
 
-        <div class="col-md-6 required">
-            <label class="col-form-label" for="contactNo">
+            <div class="col-md-6 required">
+                <label class="col-form-label" for="contactNo">
         ContactNo
       </label>
-            <input type="text" class="form-control" formControlName="contactNo" id="contactNo" />
-        </div>
+                <input type="text" class="form-control" formControlName="contactNo" id="contactNo" />
+            </div>
 
-
-
-        <div class="col-md-6 ">
-            <label class="col-form-label" for="address">
+            <div class="col-md-6 ">
+                <label class="col-form-label" for="address">
         Address
       </label>
-            <input type="text" class="form-control" formControlName="address" id="address" />
-        </div>
+                <input type="text" class="form-control" formControlName="address" id="address" />
+            </div>
 
-        <div class="col-md-6 ">
-            <label class="col-form-label" for="accountNo">
+            <div class="col-md-6 ">
+                <label class="col-form-label" for="accountNo">
         Account No
       </label>
-            <input type="text" class="form-control" formControlName="accountNo" id="accountNo" />
-        </div>
+                <input type="text" class="form-control" formControlName="accountNo" id="accountNo" />
+            </div>
 
-        <div class="col-md-6 ">
-            <label class="col-form-label" for="cnic">
+            <div class="col-md-6 ">
+                <label class="col-form-label" for="cnic">
         CNIC
       </label>
-            <input type="text" class="form-control" formControlName="cnic" id="cnic" />
-        </div>
+                <input type="text" class="form-control" formControlName="cnic" id="cnic" />
+            </div>
 
-        <div class="col-md-6">
-            <label class="col-form-label">
+            <div class="col-md-6">
+                <label class="col-form-label">
         IsActive
       </label>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" formControlName="isActive" id="isActive" />
-                <label class="custom-control-label mt-2" for="isActive"></label>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" formControlName="isActive" id="isActive" />
+                    <label class="custom-control-label mt-2" for="isActive"></label>
+                </div>
             </div>
-        </div>
-        <div class="col-md-12 mt-3">
-            <button type="submit" class="btn btn-primary">
+            <div class="col-md-12 mt-3">
+                <button type="submit" class="btn btn-primary">
           Submit
         </button>
+            </div>
         </div>
     </div>
 </form>

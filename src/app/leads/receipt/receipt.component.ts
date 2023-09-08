@@ -8,6 +8,7 @@ import * as converter from "number-to-words";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateReceiptComponent } from './create-receipt/create-receipt.component';
 import { LookUp } from 'src/app/Models/LookUp';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-receipt',
   templateUrl: './receipt.component.html',
@@ -33,6 +34,7 @@ export class ReceiptComponent  {
   constructor(
     private _apiService: ApiProxyService,
     private _modalService: NgbModal,
+    private router:Router
   ) {
     this.getAccounts();
     this.getReceipts();
@@ -54,9 +56,7 @@ export class ReceiptComponent  {
 
 
   createReceipt() {
-    const modalRef = this._modalService.open(CreateReceiptComponent);
-    // You can pass data to the modal using modalRef.componentInstance
-    modalRef.componentInstance.data = { };
+    this.router.navigate(['leads/create-receipt']);
   }
 
   editReceipt(id:number){

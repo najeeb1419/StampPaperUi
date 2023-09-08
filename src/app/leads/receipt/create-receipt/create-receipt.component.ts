@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import * as converter from "number-to-words";
 import { LookUp } from 'src/app/Models/LookUp';
@@ -16,30 +17,41 @@ export class CreateReceiptComponent implements OnInit {
 
   saving = false;
   receipt = new ReceiptDto();
-  memberList: SelectItemDto[] = [];
+  members: MemberDto[] = [];
   member = new MemberDto();
   amountInWords: string = ''
-  @Output() onSave = new EventEmitter<any>();
+  createReceiptFrom:FormGroup
 
   constructor(
     public _apiService: ApiProxyService,
-    public activeModal: NgbActiveModal,
+    private formBuilder: FormBuilder,
+
   ) {
   }
 
   ngOnInit(): void {
     this.receipt.isActive = true;
-    this.getMemberList()
+    this.getMemberList();
+    this.createReceiptFrom = this.formBuilder.group({
+      name: ['', Validators.required],
+      memberId: [0, Validators.required],
+      accountNo: [0, Validators.required],
+      address: [''],
+      cnic: [''],
+      amount:[null, Validators.required],
+      amountInWords:[null,Validators.required],
+      isActive: [true],
+      tenantId:[0]
+    });
   }
 
 
   async save(): Promise<void> {
     this.saving = true;
     this.receipt.lookUpId=LookUp.Pending;
-    (await this._apiService.putRequest('', this.receipt)).subscribe(
+    (await this._apiService.postRequest('Receipt/AddReceipt', this.receipt)).subscribe(
       () => {
-        this.activeModal.dismiss();
-        this.onSave.emit();
+
       },
       () => {
         this.saving = false;
@@ -49,13 +61,13 @@ export class CreateReceiptComponent implements OnInit {
 
 
   async getMemberList() {
-    (await this._apiService.getRequest('')).subscribe((res:any) => {
-      this.memberList = res;
+    (await this._apiService.getRequest('Member/GetMembers')).subscribe((res:any) => {
+      this.members = res;
     })
   }
 
-  async getMember(value: any) {
-    (await this._apiService.getRequestById('', value)).subscribe(res => {
+  async getMember() {
+    (await this._apiService.getRequestById('Member/MemberGetById', this.createReceiptFrom.get("memberId")?.value)).subscribe(res => {
       this.member = res;
     })
   }

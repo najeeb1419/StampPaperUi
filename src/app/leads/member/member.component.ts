@@ -33,23 +33,23 @@ export class MemberComponent  {
   async getMembers(){
    let response =await  (await this._apiService.getRequest('Member/GetMembers')).toPromise();
       this.members = response as any[];
-
   }
 
 
-  protected async delete(user: MemberDto): Promise<void> {
+  async remove(id: number) {
+    const confirmDelete = window.confirm('Are you sure you want to delete this user?');
 
-          (await this._apiService.deleteRequest('', user.id)).subscribe(() => {
-
-          });
-
+    if (confirmDelete) {
+      (await this._apiService.deleteRequest('Member/DeleteMember', id)).subscribe(
+        (res) => {
+          this.getMembers();
+        }
+      );
+    }
   }
 
 
   createMember(): void {
-    // const modalRef = this.modalService.open(CreateMemberComponent);
-    // // You can pass data to the modal using modalRef.componentInstance
-    // modalRef.componentInstance.data = { };
     this.router.navigate(['leads/create-member']);
   }
 

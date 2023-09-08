@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6">
-                    <h1>Members</h1>
+                    <h1>Customer</h1>
                 </div>
                 <div class="col-6 text-right">
                     <a class="btn bg-blue" (click)="createMember()">
@@ -109,7 +109,7 @@
                                             <i class="fas fa-pencil-alt"></i>
                                             Edit
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-danger mx-2" (click)="delete(member)">
+                                        <button type="button" class="btn btn-sm btn-danger mx-2" (click)="remove(member.id)">
                                             <i class="fas fa-trash"></i>
                                             Delete
                                         </button>

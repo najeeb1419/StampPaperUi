@@ -85,7 +85,7 @@ export class ApiProxyService {
 
   async getRequestById(url: string, id: any): Promise<Observable<any>> {
     return this.http
-      .get(`${_API_BASE_URL_}${url}${id}`, { headers: await this.addAuthorizationHeader({}) })
+      .get(`${_API_BASE_URL_}${url}?id=${id}`, { headers: await this.addAuthorizationHeader({}) })
       .pipe(catchError(this.handleError));
   }
 
@@ -127,7 +127,7 @@ export class ApiProxyService {
 
   async deleteRequest(url: string, id: any): Promise<Observable<any>> {
     return this.http
-      .delete(`${_API_BASE_URL_}${url}/${id}`, { headers: await  this.addAuthorizationHeader({})
+      .delete(`${_API_BASE_URL_}${url}?id=${id}`, { headers: await  this.addAuthorizationHeader({})
 })
       .pipe(catchError(this.handleError));
   }

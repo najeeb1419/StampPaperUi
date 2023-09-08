@@ -4,6 +4,7 @@ import { AccountModel } from 'src/app/Models/account-model';
 import { ApiProxyService } from 'src/app/api-proxy-service';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -21,12 +22,12 @@ export class AccountComponent {
   @Input() data: any;
   constructor(
     private _apiService: ApiProxyService,
-    private modalService: NgbModal
+    private router:Router
   ) {
-    this.getAll()
+    this.getAccounts()
   }
 
-  async getAll() {
+  async getAccounts() {
     (await this._apiService.getRequest('Account/getAccounts')).subscribe(
       (res: any) => {
         this.accounts = res;
@@ -34,60 +35,29 @@ export class AccountComponent {
     );
   }
 
-  openModal() {
-    const modalRef = this.modalService.open(CreateAccountComponent);
-    // You can pass data to the modal using modalRef.componentInstance
-    modalRef.componentInstance.data = { };
+  async remove(id: number) {
+
+    const confirmDelete = window.confirm('Are you sure you want to delete this user?');
+
+    if (confirmDelete) {
+      (await this._apiService.deleteRequest('Account/DeleteAccount', id)).subscribe(
+        (res) => {
+          this.getAccounts();
+        }
+      );
+    }
   }
 
-  editAccount(data?:AccountModel) {
-    const modalRef = this.modalService.open(EditAccountComponent);
-    // You can pass data to the modal using modalRef.componentInstance
-    modalRef.componentInstance.data = { data};
+
+  createAccount(): void {
+    this.router.navigate(['leads/create-account']);
   }
 
-  // protected delete(user: AccountModel): void {
-  //   abp.message.confirm(
-  //     this.l('UserDeleteWarningMessage', user.name),
-  //     undefined,
-  //     (result: boolean) => {
-  //       if (result) {
-  //         this._accountService.deleteSubAccount(user.id).subscribe(() => {
-  //           abp.notify.success(this.l('SuccessfullyDeleted'));
-  //           this.refresh();
-  //         });
-  //       }
-  //     }
-  //   );
-  // }
+  editAccount(account: AccountModel): void {
+    this.router.navigate(['leads/edit-account'], { state: { account } });
+  }
 
-  // createAccount(): void {
-  //   this.showCreateOrEditAccountDialog();
-  // }
 
-  // editAccount(user: AccountModel): void {
-  //   this.showCreateOrEditAccountDialog(user.id);
-  // }
-
-  // private showCreateOrEditAccountDialog(id?: number): void {
-  //   let createOrEditUserDialog: BsModalRef;
-  //   if (!id) {
-  //     createOrEditUserDialog = this._modalService.show(CreateAccountComponent, {
-  //       class: 'modal-lg',
-  //     });
-  //   } else {
-  //     createOrEditUserDialog = this._modalService.show(EditAccountComponent, {
-  //       class: 'modal-lg',
-  //       initialState: {
-  //         id: id,
-  //       },
-  //     });
-  //   }
-
-  //   // createOrEditUserDialog.content.onSave.subscribe(() => {
-  //   //   this.refresh();
-  //   // });
-  // }
 }
 
 

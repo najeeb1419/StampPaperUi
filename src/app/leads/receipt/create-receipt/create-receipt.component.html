@@ -1,72 +1,64 @@
-<form class="form-horizontal" autocomplete="off" #createReceiptModal="ngForm" (ngSubmit)="save()">
-    <div class="modal-header">
-        <h4 class="modal-title">Create Receipt</h4>
-    </div>
-    <div class="modal-body">
-        <div class="form-group row ">
-
-            <div class="col-md-6 required">
-                <label class="col-form-label" for="memberId">
+<form class="form-horizontal" [formGroup]="createReceiptFrom" (ngSubmit)="save()">
+    <div class="row m-5">
+        <h4 class="modal-title">
+            Create Receipt</h4>
+        <div class="col-md-6 required">
+            <label class="col-form-label" for="memberId">
               Name
           </label>
-                <select class="form-control" name="memberId" id="memberId" required maxlength="32" [(ngModel)]="receipt.memberId" #memberIdModel="ngModel" #memberIdEl (change)="getMember(receipt.memberId)">
-              <option *ngFor="let member of this.memberList" [value]="member.value">{{member.label}}
+            <select class="form-control" formControlName="memberId" id="memberId" (change)="getMember()">
+              <option *ngFor="let member of members" [value]="member.id">{{member.name}}
               </option>
           </select>
-            </div>
+        </div>
 
-            <div class="col-md-6 ">
-                <label class="col-form-label" for="accountNo">
+        <div class="col-md-6 ">
+            <label class="col-form-label" for="accountNo">
               Account No
           </label>
-                <input type="text" class="form-control" name="accountNo" id="accountNo" required maxlength="256" [(ngModel)]="member.accountNo" #accountNoModel="ngModel" #accountNoEl />
-            </div>
+            <input type="text" class="form-control" formControlName="accountNo" id="accountNo" required />
+        </div>
 
-            <div class="col-md-6 ">
-                <label class="col-form-label" for="cnic">
+        <div class="col-md-6 ">
+            <label class="col-form-label" for="cnic">
               CNIC
           </label>
-                <input type="text" class="form-control" name="cnic" id="accountNo" required maxlength="256" [(ngModel)]="member.cnic" #cnicModel="ngModel" #cnicEl />
-            </div>
+            <input type="text" class="form-control" formControlName="cnic" id="accountNo" required />
+        </div>
 
-            <div class="col-md-6 required">
-                <label class="col-form-label" for="contactNo">
+        <div class="col-md-6 required">
+            <label class="col-form-label" for="contactNo">
               Address
           </label>
-                <input class="form-control" name="address" id="address" required maxlength="32" #addressModel="ngModel" #addressEl [(ngModel)]="member.address" />
-            </div>
+            <input class="form-control" formControlName="address" id="address" required />
+        </div>
 
-            <div class="col-md-6 required">
-                <label class="col-form-label" for="amount">
+        <div class="col-md-6 required">
+            <label class="col-form-label" for="amount">
               Amount
           </label>
-                <input type="text" class="form-control" name="amount" id="amount" required maxlength="32" (keyup)="changeAmountToWords()" [(ngModel)]="receipt.amount" #amountModel="ngModel" #amountEl />
-            </div>
+            <input type="text" class="form-control" formControlName="amount" id="amount" required maxlength="32" (keyup)="changeAmountToWords()" />
+        </div>
 
-            <div class="col-md-6 required">
-                <label class="col-form-label" for="amount">
+        <div class="col-md-6 required" disabled>
+            <label class="col-form-label" for="amount">
               Amount in Words
           </label>
-                <input type="text" class="form-control" disabled name="amountInWords" id="amountInWords" required maxlength="32" [(ngModel)]="amountInWords" />
-            </div>
-            <div class="col-md-6">
-                <label class="col-form-label">
+            <input type="text" class="form-control" formControlName="amountInWords" id="amountInWords" />
+        </div>
+        <div class="col-md-6">
+            <label class="col-form-label">
               IsActive
           </label>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" name="isActive" id="isActive" [(ngModel)]="receipt.isActive" />
-                    <label class="custom-control-label mt-2" for="isActive"></label>
-                </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" formControlName="isActive" id="isActive" />
+                <label class="custom-control-label mt-2" for="isActive"></label>
             </div>
-
         </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">
-    Close
-  </button>
-        <button type="submit" class="btn btn-primary" [disabled]="!createReceiptModal.valid">
-    Submit
-  </button>
+        <div class="col-md-12 mt-3">
+            <button type="submit" class="btn btn-primary">
+            Submit
+          </button>
+        </div>
     </div>
 </form>

@@ -40,7 +40,6 @@ export class CreateMemberComponent  implements OnInit {
   async save() {
     this.saving = true;
     let tenantId = localStorage.getItem("TenantId");
- console.log( this.createMemberFrom.value);
     this.createMemberFrom.patchValue({
       tenantId: Number(tenantId),
    });

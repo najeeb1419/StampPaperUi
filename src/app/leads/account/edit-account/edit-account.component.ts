@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AccountModel } from 'src/app/Models/account-model';
 import { ApiProxyService } from 'src/app/api-proxy-service';
@@ -9,30 +11,35 @@ import { ApiProxyService } from 'src/app/api-proxy-service';
   styleUrls: ['./edit-account.component.scss']
 })
 export class EditAccountComponent {
-  @Input() data: AccountModel;
+  account:AccountModel= new AccountModel();
   saving = false;
+  editAccountFrom: FormGroup;
 
-  account = new AccountModel();
   constructor(
     public _apiService: ApiProxyService,
-    public activeModal: NgbActiveModal
+    private formBuilder: FormBuilder,
+    private router:Router,
   ) {
-
+    this.account=history.state.account;
   }
 
   ngOnInit(): void {
     this.account.isActive = true;
-    console.log("account data ", this.data); // Add this line to check the value of data
-    this.account=this.data;
-    console.log("form account data ", this.data);
+    this.editAccountFrom = this.formBuilder.group({
+      id:[this.account.id],
+      name:[this.account.name],
+      accountNo: [this.account.accountNo],
+      isActive: [this.account.isActive],
+      tenantId:[this.account.tenantId]
+    });;
   }
 
 
   async save(): Promise<void> {
     this.saving = true;
-    (await this._apiService.postRequest('Account/AddAccount', this.account)).subscribe(
+    (await this._apiService.putRequest('Account/UpdateAccount', this.editAccountFrom.value)).subscribe(
       () => {
-        this.activeModal.dismiss();
+        this.router.navigate(['leads/account']);
       },
       () => {
         this.saving = false;

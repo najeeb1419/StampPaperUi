@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MemberDto } from 'src/app/Models/MemberDto';
 import { ApiProxyService } from 'src/app/api-proxy-service';
@@ -20,6 +21,7 @@ export class CreateMemberComponent  implements OnInit {
     public _apiService: ApiProxyService,
     // public activeModal: NgbActiveModal,
     private formBuilder: FormBuilder,
+    private router:Router
   ) {
   }
 
@@ -46,9 +48,7 @@ export class CreateMemberComponent  implements OnInit {
 
     (await this._apiService.postRequest('Member/AddMember', this.createMemberFrom.value)).toPromise().then(
       () => {
-        // this.notify.info(this.l('SavedSuccessfully'));
-        // this.bsModalRef.hide();
-        // this.onSave.emit();
+        this.router.navigate(['leads/receipt']);
       },
       () => {
         this.saving = false;

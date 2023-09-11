@@ -1,8 +1,7 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
-  FormsModule,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,7 +10,6 @@ import * as converter from 'number-to-words';
 import { LookUp } from 'src/app/Models/LookUp';
 import { MemberDto } from 'src/app/Models/MemberDto';
 import { ReceiptDto } from 'src/app/Models/ReceiptDto';
-import { SelectItemDto } from 'src/app/Models/SelectItemDto';
 import { ApiProxyService } from 'src/app/api-proxy-service';
 
 @Component({
@@ -56,6 +54,7 @@ export class CreateReceiptComponent implements OnInit {
     this.createReceiptFrom.patchValue({
       remainingAmount:this.createReceiptFrom.get("amount")?.value
     })
+
     this.saving = true;
     (
       await this._apiService.postRequest('Receipt/AddReceipt', this.createReceiptFrom.value)

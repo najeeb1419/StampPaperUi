@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { PaymentDto } from 'src/app/Models/PaymentDto';
 import { ReceiptDto } from 'src/app/Models/ReceiptDto';
 import { SelectItemDto } from 'src/app/Models/SelectItemDto';
@@ -9,12 +9,16 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateReceiptComponent } from './create-receipt/create-receipt.component';
 import { LookUp } from 'src/app/Models/LookUp';
 import { Router } from '@angular/router';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { AccountModel } from 'src/app/Models/account-model';
+
+
 @Component({
   selector: 'app-receipt',
   templateUrl: './receipt.component.html',
   styleUrls: ['./receipt.component.scss'],
 })
-export class ReceiptComponent  {
+export class ReceiptComponent  implements OnInit  {
   receipts: ReceiptDto[] = [];
   keyword = '';
   isActive: string;
@@ -22,7 +26,7 @@ export class ReceiptComponent  {
   paymentDto = new PaymentDto();
   receipt = new ReceiptDto();
   amountInWords: string = '';
-  accountList: SelectItemDto[] = [];
+  accountList: AccountModel[] = [];
   memberList: SelectItemDto[] = [];
   remainingAmount: number = 0;
   saving = false;
@@ -30,21 +34,49 @@ export class ReceiptComponent  {
   paymentClass = 'd-none';
   paymentListClass = 'd-none';
   @Output() onSave = new EventEmitter<any>();
+  isDropdownOpen = false;
+  faChevronDown = faChevronDown
+  dropdownStates: boolean[] = [];
+
+  paymentForm:FormGroup
 
   constructor(
     private _apiService: ApiProxyService,
     private _modalService: NgbModal,
-    private router:Router
+    private router:Router,
+    private formBuilder:FormBuilder
   ) {
     this.getAccounts();
     this.getReceipts();
   }
 
 
+  ngOnInit(): void {
+
+    this.paymentForm = this.formBuilder.group({
+      accountId: [null, Validators.required],
+      receiptId: [null, Validators.required],
+      sendingAmount: [0, Validators.required],
+      tenantId:[localStorage.getItem("TenantId")]
+
+    });
+  }
+
+  toggleDropdown(index:number) {
+    for (let i = 0; i < this.dropdownStates.length; i++) {
+      if (i !== index) {
+        this.dropdownStates[i] = false;
+      }
+    }
+
+    this.dropdownStates[index] = !this.dropdownStates[index];
+
+  }
 
   async getReceipts(){
     (await this._apiService.getRequest('Receipt/GetReceipts')).subscribe(res=>{
       this.receipts = res;
+      this.dropdownStates.length=this.receipts.length;
     })
   }
 
@@ -65,30 +97,13 @@ export class ReceiptComponent  {
     modalRef.componentInstance.data = {id };
   }
 
-  // payment(receipt:ReceiptDto){
-  //   if(receipt.id>0){
-  //     let createOrEditPaymentDialog: BsModalRef;
-  //     createOrEditPaymentDialog = this._modalService.show(
-  //       CreatePaymentComponent,
-  //       {
-  //         class: 'modal-xl',
-  //         initialState: {
-  //           id: receipt.id,
-  //         },
-  //       }
-  //     );
-  //   }
-  // }
 
-  // payment
 
   async payment(receipt: ReceiptDto) {
-    (await this._apiService.getRequestById('', receipt.id)).subscribe((result) => {
       this.showPayment();
-      this.receipt = result;
-      this.changeAmountToWords();
+      this.receipt = receipt;
+      // this.changeAmountToWords();
       // this.getMember(this.id);
-    });
   }
 
   showPayment() {
@@ -103,16 +118,24 @@ export class ReceiptComponent  {
     this.paymentListClass = 'd-none';
   }
 
-  async save(paymentFrom: NgForm): Promise<void> {
+  async save(): Promise<void> {
     debugger;
     this.saving = true;
-    this.paymentDto.receiptId = this.receipt.id;
-    this.paymentDto.accountId = this.paymentDto.accountId;
-    (await this._apiService.putRequest('', this.paymentDto)).subscribe(
+    this.paymentForm.patchValue({
+      receiptId:this.receipt.id
+    })
+
+    this.paymentForm.patchValue({
+      receiptId:this.receipt.id
+    });
+
+
+
+    (await this._apiService.putRequest('Payment/UpdatePayment', this.paymentForm.value)).subscribe(
       () => {
         this.updateReceipt();
         this.saving = false;
-        paymentFrom.reset();
+        this.paymentForm.reset();
         this.onSave.emit();
       },
       () => {
@@ -121,12 +144,12 @@ export class ReceiptComponent  {
     );
   }
 
-  changeAmountToWords() {
-    this.amountInWords = converter.toWords(this.receipt.amount);
-  }
+  // changeAmountToWords() {
+  //   this.amountInWords = converter.toWords(this.receipt.amount);
+  // }
 
   async getAccounts() {
-    (await this._apiService.getRequest('')).subscribe((result) => {
+    (await this._apiService.getRequest('Account/GetAccounts')).subscribe((result) => {
       this.accountList = result;
     });
   }
@@ -147,7 +170,7 @@ export class ReceiptComponent  {
     this.receipt.payments = [];
     this.receipt.lookUpId =
       this.receipt.remainingAmount > 0 ? LookUp.Partial : LookUp.Completed;
-    (await this._apiService.putRequest('', this.receipt)).subscribe(
+    (await this._apiService.putRequest('Receipt/UpdateReceipt', this.receipt)).subscribe(
       (result) => {
         this.hidePayment();
         // this.refresh();

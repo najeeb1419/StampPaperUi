@@ -10,14 +10,14 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 export class NavbarComponent {
   constructor(private route:Router){
 
-  }  
+  }
   faChevronDown = faChevronDown
 
   isDropdownOpen = false;
   toggleDropdown() {
-    debugger
     this.isDropdownOpen = !this.isDropdownOpen;
   }
+
   logout() {
     // Perform logout logic here, e.g., clear user session, redirect, etc.
     localStorage.removeItem("userToken");

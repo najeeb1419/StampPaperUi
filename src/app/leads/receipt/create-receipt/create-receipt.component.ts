@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -26,6 +26,7 @@ export class CreateReceiptComponent implements OnInit {
   member = new MemberDto();
   amountInWords: string = '';
   createReceiptFrom: FormGroup;
+  @ViewChild('printContent') printContentElementRef!: ElementRef;
 
   constructor(
     public _apiService: ApiProxyService,
@@ -60,6 +61,7 @@ export class CreateReceiptComponent implements OnInit {
       await this._apiService.postRequest('Receipt/AddReceipt', this.createReceiptFrom.value)
     ).subscribe(
       () => {
+        this.printPage()
         this.router.navigate(['leads/receipt']);
       },
       () => {
@@ -98,5 +100,32 @@ export class CreateReceiptComponent implements OnInit {
     this.createReceiptFrom.patchValue({
       amountInWords: converter.toWords(this.createReceiptFrom.get("amount")?.value)
     })
+  }
+
+  printPage() {
+    const printContent = this.printContentElementRef.nativeElement.innerHTML;
+
+    // Create a new window for printing
+    const printWindow = new Window;
+    printWindow.open('', '_blank');
+    printWindow?.document.write(`
+      <html>
+      <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Print Content</title>
+      </head>
+      <body>
+        ${printContent}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      </body>
+      </html>
+    `);
+    printWindow?.document.close();
+
+    // Wait for the content to load in the new window
+    printWindow.onload = function() {
+      printWindow.print(); // Print the content
+      printWindow.close(); // Close the print window after printing
+    }
   }
 }

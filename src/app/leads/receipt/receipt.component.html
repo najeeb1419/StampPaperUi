@@ -5,75 +5,12 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
-                            <div class="col-md-3 col-lg-4">
+                            <div class="col-md-10 col-lg-10">
                                 <h3>Receipts</h3>
                             </div>
-                            <div class="col-md-4 col-lg-6 mt-2">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <button type="button" class="btn bg-blue">
-                      <i class="fas fa-search"></i>
-                    </button>
-                                    </div>
-                                    <input type="text" class="form-control" name="keyword" [(ngModel)]="keyword" />
-                                    <div class="input-group-append">
-                                        <button type="button" class="btn btn-default" (click)="advancedFiltersVisible = !advancedFiltersVisible">
-                      <i
-                        class="fas"
-                        [class.fa-angle-up]="advancedFiltersVisible"
-                        [class.fa-angle-down]="!advancedFiltersVisible"
-                      ></i>
-                    </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 col-lg-2 mt-2 text-right">
+                            <div class="col-md-2 col-lg-2 mt-2 text-right">
                                 <button class="btn btn-outline-primary" (click)="createReceipt()">
                   Create
-                </button>
-                                <!-- <a href="javascript:;" class="btn bg-blue" (click)="createReceipt()">
-                                    <i class="fa fa-plus-square"></i> Create
-                                </a> -->
-                            </div>
-                        </div>
-                        <div *ngIf="advancedFiltersVisible" class="card mb-0 mt-1">
-                            <div class="card-body">
-                                <form class="form-horizontal">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group row mb-0">
-                                                <label class="col-md-3 col-form-label">
-                          IsActive
-                        </label>
-                                                <div class="col-md-9 pt-2">
-                                                    <div class="custom-control custom-radio d-inline">
-                                                        <input type="radio" class="custom-control-input" id="isActiveAll" name="isActive" [(ngModel)]="isActive" [value]="undefined" checked />
-                                                        <label class="custom-control-label" for="isActiveAll">
-                              All
-                            </label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio d-inline mx-3">
-                                                        <input type="radio" class="custom-control-input" id="isActiveActive" name="isActive" [(ngModel)]="isActive" [value]="true" />
-                                                        <label class="custom-control-label" for="isActiveActive">
-                              Yes
-                            </label>
-                                                    </div>
-                                                    <div class="custom-control custom-radio d-inline">
-                                                        <input type="radio" class="custom-control-input" id="isActivePassive" name="isActive" [(ngModel)]="isActive" [value]="false" />
-                                                        <label class="custom-control-label" for="isActivePassive">
-                              No
-                            </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="card-footer">
-                                <button type="button" class="btn bg-blue">Search</button>
-                                <button type="button" class="btn btn-default float-right">
-                  Clear
                 </button>
                             </div>
                         </div>
@@ -96,32 +33,6 @@
                                 <tbody>
                                     <tr *ngFor="let receipt of receipts; let i = index">
                                         <td>
-                                            <!-- <div class="dropdown-content" *ngIf="isDropdownOpen">
-                                                 <a (click)="logout()">Logout</a>
-                                                <a (click)="editReceipt(receipt.id)"> Edit </a>
-                                                <a (click)="delete(receipt)">
-                                                  Delete
-                                                </a>
-                                                <a (click)="payment(receipt)">
-                                                  Payment
-                                                </a>
-                                            </div>
-                                            <div class="btn-group" dropdown>
-                                                <button class="dropdown-button" (click)="toggleDropdown()">
-                                                 <fa-icon [icon]="faChevronDown"></fa-icon>
-                                                </button>
-                                                <ul id="dropdown-disabled-menu" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-disabled-menu">
-                                                    <li role="menuitem" (click)="editReceipt(receipt.id)">
-                                                        <a class="dropdown-item">Edit</a>
-                                                    </li>
-                                                    <li role="menuitem" (click)="delete(receipt)">
-                                                        <a class="dropdown-item">Delete</a>
-                                                    </li>
-                                                    <li role="menuitem" (click)="payment(receipt)">
-                                                        <a class="dropdown-item">Payment</a>
-                                                    </li>
-                                                </ul>
-                                            </div> -->
                                             <div class="dropdown-container">
                                                 <button class="btn fa fa" (click)="toggleDropdown(i)">
                           <fa-icon [icon]="faChevronDown"></fa-icon>
@@ -129,7 +40,7 @@
 
                                                 <div class="dropdown" *ngIf="dropdownStates[i]">
                                                     <ul>
-                                                        <li>
+                                                        <li (click)="editReceipt(receipt)">
                                                             <button class="btn btn-sm btn-primary btn-lg btn-block">
                                 Edit
                               </button>
@@ -167,16 +78,6 @@
 
                     <div class="card-footer table-card-footer bg-light border-top">
                         <div class="row">
-                            <!-- <div class="col-sm-4 col-12 text-sm-left text-center">
-                  <button class="btn btn-secondary" (click)="refresh()">
-                    <i class="fas fa-redo-alt"></i>
-                  </button>
-                </div>
-                <div class="col-sm-4 col-12 text-center">
-                  <p class="mb-0 my-2">
-                    {{ "TotalRecordsCount" | localize : totalItems }}
-                  </p>
-                </div> -->
                             <div class="col-sm-4 col-12">
                                 <div class="float-sm-right m-auto"></div>
                             </div>
@@ -252,12 +153,11 @@
                   </select>
                                 </div>
                                 <div class="col-md-12">
-                                    <button class="btn btn-primary btn-sm mt-3" type="submit" [disabled]="!paymentForm.valid || saving">
+                                    <button class="btn btn-primary btn-sm mt-3" type="submit">
                     Save
                   </button>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

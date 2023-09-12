@@ -91,10 +91,8 @@ export class ReceiptComponent  implements OnInit  {
     this.router.navigate(['leads/create-receipt']);
   }
 
-  editReceipt(id:number){
-    const modalRef = this._modalService.open(CreateReceiptComponent);
-    // You can pass data to the modal using modalRef.componentInstance
-    modalRef.componentInstance.data = {id };
+  editReceipt(receipt:ReceiptDto){
+    this.router.navigate(['leads/edit-receipt'], { state: { receipt } });
   }
 
 
@@ -123,13 +121,7 @@ export class ReceiptComponent  implements OnInit  {
     this.saving = true;
     this.paymentForm.patchValue({
       receiptId:this.receipt.id
-    })
-
-    this.paymentForm.patchValue({
-      receiptId:this.receipt.id
     });
-
-
 
     (await this._apiService.putRequest('Payment/UpdatePayment', this.paymentForm.value)).subscribe(
       () => {
@@ -144,9 +136,6 @@ export class ReceiptComponent  implements OnInit  {
     );
   }
 
-  // changeAmountToWords() {
-  //   this.amountInWords = converter.toWords(this.receipt.amount);
-  // }
 
   async getAccounts() {
     (await this._apiService.getRequest('Account/GetAccounts')).subscribe((result) => {
@@ -155,22 +144,31 @@ export class ReceiptComponent  implements OnInit  {
   }
 
   getRemainingAmount() {
-    if (this.paymentDto.sendingAmount > this.receipt.remainingAmount) {
-      // this.notify.error(
-      //   'Sending amount should be less or equal then remaining amount'
-      // );
+    let sendingAmount= this.paymentForm.get("sendingAmount")?.value;
+    if (sendingAmount > this.receipt.remainingAmount) {
+      alert(
+        'Sending amount should be less or equal then remaining amount'
+      );
       this.paymentDto.sendingAmount = 0;
       return;
     }
     this.receipt.remainingAmount =
-      this.receipt.remainingAmount - this.paymentDto.sendingAmount;
+      this.receipt.remainingAmount - sendingAmount;
   }
 
   async updateReceipt() {
     this.receipt.payments = [];
     this.receipt.lookUpId =
       this.receipt.remainingAmount > 0 ? LookUp.Partial : LookUp.Completed;
-    (await this._apiService.putRequest('Receipt/UpdateReceipt', this.receipt)).subscribe(
+      let formDate ={
+        id:this.receipt.id,
+        tenantId:this.receipt.tenantId,
+        lookUpId:this.receipt.remainingAmount > 0 ? LookUp.Partial : LookUp.Completed,
+        amount:this.receipt.amount,
+        isActive:true,
+        memberId:this.receipt.member.id
+      };
+    (await this._apiService.putRequest('Receipt/UpdateReceipt', formDate)).subscribe(
       (result) => {
         this.hidePayment();
         // this.refresh();

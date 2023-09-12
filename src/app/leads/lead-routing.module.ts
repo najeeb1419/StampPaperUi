@@ -13,6 +13,7 @@ import { EditMemberComponent } from './member/edit-member/edit-member.component'
 import { CreateAccountComponent } from './account/create-account/create-account.component';
 import { EditAccountComponent } from './account/edit-account/edit-account.component';
 import { CreateReceiptComponent } from './receipt/create-receipt/create-receipt.component';
+import { EditReceiptComponent } from './receipt/edit-receipt/edit-receipt.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,9 @@ const routes: Routes = [
   },
   {
     path:'create-receipt', component:CreateReceiptComponent
+  },
+  {
+    path:'edit-receipt', component:EditReceiptComponent
   },
 
 

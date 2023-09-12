@@ -97,11 +97,10 @@ export class ReceiptComponent  implements OnInit  {
 
 
 
-  async payment(receipt: ReceiptDto) {
+  async payment(receipt: ReceiptDto , index:number) {
       this.showPayment();
       this.receipt = receipt;
-      // this.changeAmountToWords();
-      // this.getMember(this.id);
+      this.dropdownStates[index] = false;
   }
 
   showPayment() {
@@ -166,7 +165,8 @@ export class ReceiptComponent  implements OnInit  {
         lookUpId:this.receipt.remainingAmount > 0 ? LookUp.Partial : LookUp.Completed,
         amount:this.receipt.amount,
         isActive:true,
-        memberId:this.receipt.member.id
+        memberId:this.receipt.member.id,
+        remainingAmount:this.receipt.remainingAmount,
       };
     (await this._apiService.putRequest('Receipt/UpdateReceipt', formDate)).subscribe(
       (result) => {

@@ -1,198 +1,204 @@
-<div class="row mt-2">
-    <div [class]="receiptClass">
-        <section class="content px-2">
-            <div class="container-fluid">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-md-10 col-lg-10">
-                                <h3>Receipts</h3>
-                            </div>
-                            <div class="col-md-2 col-lg-2 mt-2 text-right">
-                                <button class="btn btn-outline-primary" (click)="createReceipt()">
-                  Create
-                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered">
-                                <thead class="bg-light">
-                                    <tr>
-                                        <th>Actions</th>
-                                        <th>Name</th>
-                                        <th>Contact No</th>
-                                        <th>Address</th>
-                                        <th>Status</th>
-                                        <th>Account No</th>
-                                        <th>Amount</th>
-                                        <th>Remaining</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let receipt of receipts; let i = index">
-                                        <td>
-                                            <div class="dropdown-container">
-                                                <button class="btn fa fa" (click)="toggleDropdown(i)">
-                          <fa-icon [icon]="faChevronDown"></fa-icon>
-                        </button>
+<div class="container-fluid">
 
-                                                <div class="dropdown" *ngIf="dropdownStates[i]">
-                                                    <ul>
-                                                        <li (click)="editReceipt(receipt)">
-                                                            <button class="btn btn-sm btn-primary btn-lg btn-block">
-                                Edit
-                              </button>
-                                                        </li>
-                                                        <li>
-                                                            <button class="btn btn-sm btn-danger">
-                                Delete
-                              </button>
-                                                        </li>
-                                                        <li>
-                                                            <button class="btn btn-sm btn-success" (click)="payment(receipt)">
-                                Payment
-                              </button>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>{{ receipt.member?.name }}</td>
-                                        <td>{{ receipt.member?.contactNo }}</td>
-                                        <td>{{ receipt.member?.address }}</td>
-                                        <td>
-                                            <span [class]="receipt?.style">
-                        {{ receipt.status }}
-                      </span>
-                                        </td>
-                                        <td>{{ receipt?.member?.accountNo }}</td>
-                                        <td>{{ receipt?.amount }}</td>
-                                        <td>{{ receipt?.remainingAmount }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="card-footer table-card-footer bg-light border-top">
-                        <div class="row">
-                            <div class="col-sm-4 col-12">
-                                <div class="float-sm-right m-auto"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div [class]="paymentClass">
-        <form [formGroup]="paymentForm" (ngSubmit)="save()">
-            <section class="content px-2">
-                <div class="container-fluid">
+    <div class="row mt-2">
+        <div [class]="receiptClass">
+            <section class="content p-0">
+                <div>
                     <div class="card">
                         <div class="card-header">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h5>Payment</h5>
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <h3>Receipts</h3>
                                 </div>
-                                <div class="col-6 text-right">
-                                    <button type="button" class="btn btn-default btn-sm" (click)="hidePayment()">
-                    Cancel
+                                <div>
+                                    <button class="btn btn-outline-primary" (click)="createReceipt()">
+                    Create
                   </button>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <table class="table table-striped table-bordered">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered">
+                                    <thead class="bg-light">
                                         <tr>
+                                            <th>Actions</th>
                                             <th>Name</th>
-                                            <td>{{ receipt?.member?.name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Customer AC</th>
-                                            <td>{{ receipt?.member?.accountNo }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>CNIC</th>
-                                            <td>{{ receipt?.member?.cnic }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Total Amount</th>
-                                            <td>{{ receipt?.amount }}</td>
-                                        </tr>
-                                        <tr>
+                                            <th>Contact No</th>
+                                            <th>Address</th>
+                                            <th>Status</th>
+                                            <th>Account No</th>
+                                            <th>Amount</th>
                                             <th>Remaining</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let receipt of receipts; let i = index">
+                                            <td>
+                                                <div class="dropdown-parent">
+                                                    <div class="dropdown-container">
+                                                        <div class="dropdown" *ngIf="dropdownStates[i]">
+                                                            <ul>
+                                                                <li (click)="editReceipt(receipt)">
+                                                                    <button class="btn btn-sm btn-primary btn-lg btn-block">
+                                  Edit
+                                </button>
+                                                                </li>
+                                                                <li>
+                                                                    <button class="btn btn-sm btn-danger">
+                                  Delete
+                                </button>
+                                                                </li>
+                                                                <li>
+                                                                    <button class="btn btn-sm btn-success" (click)="payment(receipt, i)">
+                                  Payment
+                                </button>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn fa fa" (click)="toggleDropdown(i)">
+                                                    <fa-icon [icon]="faChevronDown"></fa-icon>
+                                                  </button>
+                                                </div>
+                                            </td>
+                                            <td>{{ receipt.member?.name }}</td>
+                                            <td>{{ receipt.member?.contactNo }}</td>
+                                            <td>{{ receipt.member?.address }}</td>
+                                            <td>
+                                                <span [class]="receipt?.style">
+                          {{ receipt.status }}
+                        </span>
+                                            </td>
+                                            <td>{{ receipt?.member?.accountNo }}</td>
+                                            <td>{{ receipt?.amount }}</td>
                                             <td>{{ receipt?.remainingAmount }}</td>
                                         </tr>
-                                    </table>
-                                </div>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
-                                <div class="col-md-12 required">
-                                    <label class="col-form-label" for="amount">
-                    Sending Amount
-                  </label>
-                                    <input type="text" class="form-control" formControlName="sendingAmount" id="sendingAmount" (change)="getRemainingAmount()" />
-                                </div>
-
-                                <div class="col-md-12 required">
-                                    <label class="col-form-label" for="memberId">
-                    Sender Account
-                  </label>
-                                    <select class="form-control" formControlName="accountId" id="accountId">
-                    <option
-                      *ngFor="let account of accountList"
-                      [value]="account.id"
-                    >
-                      {{ account.name }}
-                    </option>
-                  </select>
-                                </div>
-                                <div class="col-md-12">
-                                    <button class="btn btn-primary btn-sm mt-3" type="submit">
-                    Save
-                  </button>
+                        <div class="card-footer table-card-footer bg-light border-top">
+                            <div class="row">
+                                <div class="col-sm-4 col-12">
+                                    <div class="float-sm-right m-auto"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-        </form>
-    </div>
-    <div [class]="paymentListClass" *ngIf="receipt?.payments">
-        <div class="card container-fluid">
-            <div class="card-header">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h5>Payment Details</h5>
+        </div>
+
+        <div [class]="paymentClass">
+            <form [formGroup]="paymentForm" (ngSubmit)="save()">
+                <section class="content p-0">
+                    <div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h3 class="m-0">Payment</h3>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn-cancel btn" (click)="hidePayment()">
+                      Cancel
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
+                                            <div class="title">Name</div>
+                                            <div>{{ receipt?.member?.name }}</div>
+                                        </div>
+                                        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
+                                            <div class="title">Customer AC</div>
+                                            <div>{{ receipt?.member?.accountNo }}</div>
+                                        </div>
+                                        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
+                                            <div class="title">Customer AC</div>
+                                            <div>{{ receipt?.member?.accountNo }}</div>
+                                        </div>
+                                        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
+                                            <div class="title">CNIC</div>
+                                            <div>{{ receipt?.member?.cnic }}</div>
+                                        </div>
+                                        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
+                                            <div class="title">Total Amount</div>
+                                            <div>{{ receipt?.amount }}</div>
+                                        </div>
+                                        <div class="payment-border d-flex justify-content-between pb-2 mb-4 pt-2">
+                                            <div class="title">Remaining</div>
+                                            <div>{{ receipt?.remainingAmount }}</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 required">
+                                        <label class="col-form-label title" for="amount">
+                      Sending Amount
+                    </label>
+                                        <input type="text" class="form-control" formControlName="sendingAmount" id="sendingAmount" (change)="getRemainingAmount()" />
+                                    </div>
+
+                                    <div class="col-md-12 required">
+                                        <label class="col-form-label title" for="memberId">
+                      Sender Account
+                    </label>
+                                        <select class="form-control" formControlName="accountId" id="accountId">
+                      <option
+                        *ngFor="let account of accountList"
+                        [value]="account.id"
+                      >
+                        {{ account.name }}
+                      </option>
+                    </select>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="btn btn-primary btn-sm mt-3" type="submit">
+                      Save
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </div>
+        <div [class]="paymentListClass" *ngIf="receipt?.payments">
+            <div class="card container-fluid">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Payment Details</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Sender Account No</th>
-                                <th>Amount</th>
-                                <th>{{ "Creation Time" }}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let payment of receipt?.payments">
-                                <td>{{ payment?.senderAccountNo }}</td>
-                                <td>{{ payment?.sendingAmount }}</td>
-                                <td>
-                                    {{ payment?.creationTime }}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>Sender Account No</th>
+                                    <th>Amount</th>
+                                    <th>{{ "Creation Time" }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let payment of receipt?.payments">
+                                    <td>{{ payment?.senderAccountNo }}</td>
+                                    <td>{{ payment?.sendingAmount }}</td>
+                                    <td>
+                                        {{ payment?.creationTime }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

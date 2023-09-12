@@ -64,69 +64,25 @@
 </form>
 
 
-
-
-<form class="form-horizontal" [formGroup]="createReceiptFrom" printContent>
-    <div class="row m-5">
-        <h4 class="modal-title">
-            Create Receipt</h4>
-        <div class="col-md-6 required">
-            <label class="col-form-label" for="memberId">
-            Name
-        </label>
-            <select class="form-control" formControlName="memberId" id="memberId" (change)="getMember()">
-            <option *ngFor="let member of members" [value]="member.id">{{member.name}}
-            </option>
-        </select>
+<div #printContent class="container">
+    <div class="col-md-12">
+        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
+            <div class="title">Name</div>
+            <div>{{ createReceiptFrom.get("name")?.value }}</div>
         </div>
 
-        <div class="col-md-6 ">
-            <label class="col-form-label" for="accountNo">
-            Account No
-        </label>
-            <input type="text" class="form-control" formControlName="accountNo" id="accountNo" required />
+        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
+            <div class="title">Account No</div>
+            <div>{{createReceiptFrom.get("accountNo")?.value }}</div>
         </div>
 
-        <div class="col-md-6 ">
-            <label class="col-form-label" for="cnic">
-            CNIC
-        </label>
-            <input type="text" class="form-control" formControlName="cnic" id="accountNo" required />
+        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
+            <div class="title">CNIC</div>
+            <div>{{ createReceiptFrom.get("cnic")?.value }}</div>
         </div>
-
-        <div class="col-md-6 required">
-            <label class="col-form-label" for="contactNo">
-            Address
-        </label>
-            <input class="form-control" formControlName="address" id="address" required />
-        </div>
-
-        <div class="col-md-6 required">
-            <label class="col-form-label" for="amount">
-            Amount
-        </label>
-            <input type="text" class="form-control" formControlName="amount" id="amount" required maxlength="32" (keyup)="changeAmountToWords()" />
-        </div>
-
-        <div class="col-md-6 required" disabled>
-            <label class="col-form-label" for="amount">
-            Amount in Words
-        </label>
-            <input type="text" class="form-control" formControlName="amountInWords" id="amountInWords" />
-        </div>
-        <div class="col-md-6">
-            <label class="col-form-label">
-            IsActive
-        </label>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" formControlName="isActive" id="isActive" />
-                <label class="custom-control-label mt-2" for="isActive"></label>
-            </div>
-        </div>
-        <div class="col-md-12 mt-3">
-            <button type="submit" class="btn btn-primary">
-          Submit
-        </button>
+        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
+            <div class="title">Amount</div>
+            <div>{{ createReceiptFrom.get("amount")?.value }}</div>
         </div>
     </div>
-</form>
+</div>

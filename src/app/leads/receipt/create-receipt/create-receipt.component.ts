@@ -60,6 +60,8 @@ export class CreateReceiptComponent implements OnInit {
       await this._apiService.postRequest('Receipt/AddReceipt', this.createReceiptFrom.value)
     ).subscribe(
       () => {
+
+
         this.printPage()
         this.router.navigate(['leads/receipt']);
       },
@@ -68,6 +70,9 @@ export class CreateReceiptComponent implements OnInit {
       }
     );
   }
+
+
+
 
   async getMemberList() {
     (await this._apiService.getRequest('Member/GetMembers')).subscribe(
@@ -104,7 +109,34 @@ export class CreateReceiptComponent implements OnInit {
   printPage() {
     const printContent = this.printContentElementRef.nativeElement.innerHTML;
 
+    const printWindow = window.open('', '', 'width=1000,height=1000') as Window;
+    printWindow.document.open();
+    printWindow?.document.write(`
+      <html>
+      <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <title>Print Content</title>
+      </head>
+      <body>
+        ${printContent}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      </body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.print();
+
+    // Listen for the "afterprint" event and close the window
+    printWindow.addEventListener('afterprint', () => {
+      printWindow.close();
+    });
+}
+
+  printPage11() {
+    const printContent = this.printContentElementRef.nativeElement.innerHTML;
+
     // Create a new window for printing
+    var tab = window.open('') as Window
     const printWindow = new Window;
     printWindow.open('', '_blank');
     printWindow?.document.write(`

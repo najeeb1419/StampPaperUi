@@ -14,6 +14,9 @@ import { CreateAccountComponent } from './account/create-account/create-account.
 import { EditAccountComponent } from './account/edit-account/edit-account.component';
 import { CreateReceiptComponent } from './receipt/create-receipt/create-receipt.component';
 import { EditReceiptComponent } from './receipt/edit-receipt/edit-receipt.component';
+import { CreateBankEmployeeComponent } from './bank-employee/create-bank-employee/create-bank-employee.component';
+import { EditBankEmployeeComponent } from './bank-employee/edit-bank-employee/edit-bank-employee.component';
+import { BankEmployeeComponent } from './bank-employee/bank-employee.component';
 
 
 const routes: Routes = [
@@ -58,6 +61,16 @@ const routes: Routes = [
   {
     path:'edit-receipt', component:EditReceiptComponent
   },
+  {
+    path:'create-bank-employee', component:CreateBankEmployeeComponent
+  },
+  {
+    path:'edit-bank-employee', component:EditBankEmployeeComponent
+  },
+  {
+    path:'bank-employee', component:BankEmployeeComponent
+  },
+
 
 
 

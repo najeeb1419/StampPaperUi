@@ -26,6 +26,10 @@ export class EditMemberComponent  implements OnInit {
     private router:Router
   ) {
     this.member=history.state.user;
+
+  }
+
+  async ngOnInit(): Promise<void> {
     this.editMemberFrom = this.formBuilder.group({
       id:[this.member.id],
       name: [this.member.name, Validators.required],
@@ -35,12 +39,6 @@ export class EditMemberComponent  implements OnInit {
       cnic: [this.member.cnic],
       isActive: [this.member.isActive],
       tenantId:[this.member.tenantId]
-    });
-  }
-
-  async ngOnInit(): Promise<void> {
-    (await this.apiService.getRequestById('', this.id)).subscribe((result:any) => {
-      this.member = result;
     });
   }
 

@@ -42,7 +42,7 @@ export class MemberComponent  {
     if (confirmDelete) {
       (await this._apiService.deleteRequest('Member/DeleteMember', id)).subscribe(
         (res) => {
-          this.getMembers();
+          this.members= this.members.filter(x=>x.id !==id);
         }
       );
     }

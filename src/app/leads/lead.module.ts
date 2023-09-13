@@ -23,6 +23,9 @@ import { EditReceiptComponent } from './receipt/edit-receipt/edit-receipt.compon
 import { MemberComponent } from './member/member.component';
 import { CreateMemberComponent } from './member/create-member/create-member.component';
 import { EditMemberComponent } from './member/edit-member/edit-member.component';
+import { BankEmployeeComponent } from './bank-employee/bank-employee.component';
+import { CreateBankEmployeeComponent } from './bank-employee/create-bank-employee/create-bank-employee.component';
+import { EditBankEmployeeComponent } from './bank-employee/edit-bank-employee/edit-bank-employee.component';
 
 
 
@@ -46,7 +49,10 @@ import { EditMemberComponent } from './member/edit-member/edit-member.component'
     EditReceiptComponent,
     MemberComponent,
     CreateMemberComponent,
-    EditMemberComponent
+    EditMemberComponent,
+    BankEmployeeComponent,
+    CreateBankEmployeeComponent,
+    EditBankEmployeeComponent
 
 
   ],

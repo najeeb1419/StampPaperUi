@@ -37,6 +37,7 @@ export class ReceiptComponent  implements OnInit  {
   isDropdownOpen = false;
   faChevronDown = faChevronDown
   dropdownStates: boolean[] = [];
+  payments:PaymentDto[]=[]
 
   paymentForm:FormGroup
 
@@ -81,8 +82,15 @@ export class ReceiptComponent  implements OnInit  {
   }
 
 
-  protected async delete(user: ReceiptDto): Promise<void> {
-    (await this._apiService.deleteRequest('', user.id)).subscribe(() => {});
+  protected async delete(id:number, index:number): Promise<void> {
+    this.dropdownStates[index] = false;
+    const confirmDelete = window.confirm('Are you sure you want to delete this user?');
+
+    if (confirmDelete) {
+    (await this._apiService.deleteRequest('Receipt/DeleteReceipt', id)).subscribe(res => {
+      this.receipts = this.receipts.filter(x=>x.id !=id);
+    });
+    }
   }
 
 
@@ -101,7 +109,15 @@ export class ReceiptComponent  implements OnInit  {
       this.showPayment();
       this.receipt = receipt;
       this.dropdownStates[index] = false;
+      this.getPayment(receipt.id);
   }
+
+ async getPayment(receiptId:Number){
+  (await this._apiService.getRequestById('Payment/GetPaymentByReceiptId',receiptId)).subscribe(res=>{
+    this.payments = res;
+    this.dropdownStates.length=this.receipts.length;
+  })
+ }
 
   showPayment() {
     this.receiptClass = 'col-md-8';
@@ -171,10 +187,8 @@ export class ReceiptComponent  implements OnInit  {
     (await this._apiService.putRequest('Receipt/UpdateReceipt', formDate)).subscribe(
       (result) => {
         this.hidePayment();
-        // this.refresh();
       },
       (error) => {
-        // this.notify.error(error);
       }
     );
   }

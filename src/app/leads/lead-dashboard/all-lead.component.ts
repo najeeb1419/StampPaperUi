@@ -12,10 +12,10 @@ export class AllLeadComponent {
 
   }
   async ngOnInit() {
-    let tenantId = Number(localStorage.getItem("TenantId"));
-    (await this.apiService.getRequestById('Lead/LeadDashboard?TenantId=', tenantId)).subscribe((result) => {
-      this.LeadsCount = result;
-    });
+    // let tenantId = Number(localStorage.getItem("TenantId"));
+    // (await this.apiService.getRequestById('Lead/LeadDashboard?TenantId=', tenantId)).subscribe((result) => {
+    //   this.LeadsCount = result;
+    // });
 
 
   }

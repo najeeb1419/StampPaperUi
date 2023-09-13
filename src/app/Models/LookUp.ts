@@ -1,5 +1,5 @@
 export class LookUp {
-  public static Pending: number = 2;
-  public static Partial: number = 3;
-  public static Completed: number =4;
+  public static Pending: number = 1;
+  public static Partial: number = 2;
+  public static Completed: number =3;
 }

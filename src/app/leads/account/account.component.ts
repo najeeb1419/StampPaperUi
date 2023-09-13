@@ -42,7 +42,7 @@ export class AccountComponent {
     if (confirmDelete) {
       (await this._apiService.deleteRequest('Account/DeleteAccount', id)).subscribe(
         (res) => {
-          this.getAccounts();
+          this.accounts = this.accounts.filter(x=>x.id !==id);
         }
       );
     }

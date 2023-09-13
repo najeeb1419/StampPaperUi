@@ -44,7 +44,7 @@
                                   Edit
                                 </button>
                                                                 </li>
-                                                                <li>
+                                                                <li (click)="delete(receipt.id, i)">
                                                                     <button class="btn btn-sm btn-danger">
                                   Delete
                                 </button>
@@ -169,7 +169,7 @@
                 </section>
             </form>
         </div>
-        <div [class]="paymentListClass" *ngIf="receipt?.payments">
+        <div [class]="paymentListClass" *ngIf="payments.length>0">
             <div class="card container-fluid">
                 <div class="card-header">
                     <div class="row">
@@ -189,7 +189,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let payment of receipt?.payments">
+                                <tr *ngFor="let payment of payments">
                                     <td>{{ payment?.senderAccountNo }}</td>
                                     <td>{{ payment?.sendingAmount }}</td>
                                     <td>

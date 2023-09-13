@@ -9,5 +9,6 @@ export class PaymentDto  {
   recieverAccountNo: string | undefined;
   cnic: string | undefined;
   address: string | undefined;
+  creationTime:Date
 
 }

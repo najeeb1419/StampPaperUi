@@ -17,6 +17,9 @@ import { EditReceiptComponent } from './receipt/edit-receipt/edit-receipt.compon
 import { CreateBankEmployeeComponent } from './bank-employee/create-bank-employee/create-bank-employee.component';
 import { EditBankEmployeeComponent } from './bank-employee/edit-bank-employee/edit-bank-employee.component';
 import { BankEmployeeComponent } from './bank-employee/bank-employee.component';
+import { CreateBankEmployeeReceiptComponent } from './bank-employee-receipt/create-bank-employee-receipt/create-bank-employee-receipt.component';
+import { EditBankEmployeeReceiptComponent } from './bank-employee-receipt/edit-bank-employee-receipt/edit-bank-employee-receipt.component';
+import { BankEmployeeReceiptComponent } from './bank-employee-receipt/bank-employee-receipt.component';
 
 
 const routes: Routes = [
@@ -70,6 +73,17 @@ const routes: Routes = [
   {
     path:'bank-employee', component:BankEmployeeComponent
   },
+  {
+    path:'create-bank-employee-receipt', component:CreateBankEmployeeReceiptComponent
+  },
+  {
+    path:'edit-bank-employee-receipt', component:EditBankEmployeeReceiptComponent
+  },
+  {
+    path:'bank-employee-receipt', component:BankEmployeeReceiptComponent
+  },
+
+
 
 
 

@@ -1,7 +1,7 @@
-<form class="form-horizontal" [formGroup]="createReceiptFrom" (ngSubmit)="save()">
+<form class="form-horizontal" [formGroup]="createBankEmployeeReceiptFrom" (ngSubmit)="save()">
     <div class="row m-5">
         <h4 class="modal-title">
-            Create Receipt</h4>
+            Create Bank Employee Receipt</h4>
         <div class="col-md-6 required">
             <label class="col-form-label" for="memberId">
               Name
@@ -64,25 +64,25 @@
 </form>
 
 
-<div #printContent class="container" hidden>
+<div #printContent class="container">
     <div class="col-md-12">
         <div class="payment-border d-flex justify-content-between pb-2 pt-2">
             <div class="title">Name</div>
-            <div>{{ createReceiptFrom.get("name")?.value }}</div>
+            <div>{{ createBankEmployeeReceiptFrom.get("name")?.value }}</div>
         </div>
 
         <div class="payment-border d-flex justify-content-between pb-2 pt-2">
             <div class="title">Account No</div>
-            <div>{{createReceiptFrom.get("accountNo")?.value }}</div>
+            <div>{{createBankEmployeeReceiptFrom.get("accountNo")?.value }}</div>
         </div>
 
         <div class="payment-border d-flex justify-content-between pb-2 pt-2">
             <div class="title">CNIC</div>
-            <div>{{ createReceiptFrom.get("cnic")?.value }}</div>
+            <div>{{ createBankEmployeeReceiptFrom.get("cnic")?.value }}</div>
         </div>
         <div class="payment-border d-flex justify-content-between pb-2 pt-2">
             <div class="title">Amount</div>
-            <div>{{ createReceiptFrom.get("amount")?.value }}</div>
+            <div>{{ createBankEmployeeReceiptFrom.get("amount")?.value }}</div>
         </div>
     </div>
 </div>

@@ -8,10 +8,10 @@
                         <div class="card-header">
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <h3>Receipts</h3>
+                                    <h3>Bank Employee Receipts</h3>
                                 </div>
                                 <div>
-                                    <button class="btn btn-outline-primary" (click)="createReceipt()">
+                                    <button class="btn btn-outline-primary" (click)="createBankEmployeeReceipt()">
                     Create
                   </button>
                                 </div>
@@ -33,13 +33,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let receipt of receipts; let i = index">
+                                        <tr *ngFor="let receipt of bankEmployeeReceipts; let i = index">
                                             <td>
                                                 <div class="dropdown-parent">
                                                     <div class="dropdown-container">
                                                         <div class="dropdown" *ngIf="dropdownStates[i]">
                                                             <ul>
-                                                                <li (click)="editReceipt(receipt)">
+                                                                <li (click)="editBankEmployeeReceipt(receipt)">
                                                                     <button class="btn btn-sm btn-primary btn-lg btn-block">
                                   Edit
                                 </button>
@@ -62,15 +62,15 @@
                                                   </button>
                                                 </div>
                                             </td>
-                                            <td>{{ receipt.member?.name }}</td>
-                                            <td>{{ receipt.member?.contactNo }}</td>
-                                            <td>{{ receipt.member?.address }}</td>
+                                            <td>{{ receipt.bankEmployee?.name }}</td>
+                                            <td>{{ receipt.bankEmployee?.contactNo }}</td>
+                                            <td>{{ receipt.bankEmployee?.address }}</td>
                                             <td>
                                                 <span [class]="receipt?.style">
                           {{ receipt.status }}
                         </span>
                                             </td>
-                                            <td>{{ receipt?.member?.accountNo }}</td>
+                                            <td>{{ receipt?.bankEmployee?.accountNo }}</td>
                                             <td>{{ receipt?.amount }}</td>
                                             <td>{{ receipt?.remainingAmount }}</td>
                                         </tr>
@@ -113,27 +113,27 @@
                                     <div class="col-md-12">
                                         <div class="payment-border d-flex justify-content-between pb-2 pt-2">
                                             <div class="title">Name</div>
-                                            <div>{{ receipt?.member?.name }}</div>
+                                            <div>{{ bankEmployeeReceipt?.bankEmployee?.name }}</div>
                                         </div>
                                         <div class="payment-border d-flex justify-content-between pb-2 pt-2">
                                             <div class="title">Customer AC</div>
-                                            <div>{{ receipt?.member?.accountNo }}</div>
+                                            <div>{{ bankEmployeeReceipt?.bankEmployee?.accountNo }}</div>
                                         </div>
                                         <div class="payment-border d-flex justify-content-between pb-2 pt-2">
                                             <div class="title">Customer AC</div>
-                                            <div>{{ receipt?.member?.accountNo }}</div>
+                                            <div>{{ bankEmployeeReceipt?.bankEmployee?.accountNo }}</div>
                                         </div>
                                         <div class="payment-border d-flex justify-content-between pb-2 pt-2">
                                             <div class="title">CNIC</div>
-                                            <div>{{ receipt?.member?.cnic }}</div>
+                                            <div>{{ bankEmployeeReceipt?.bankEmployee?.cnic }}</div>
                                         </div>
                                         <div class="payment-border d-flex justify-content-between pb-2 pt-2">
                                             <div class="title">Total Amount</div>
-                                            <div>{{ receipt?.amount }}</div>
+                                            <div>{{ bankEmployeeReceipt?.amount }}</div>
                                         </div>
                                         <div class="payment-border d-flex justify-content-between pb-2 mb-4 pt-2">
                                             <div class="title">Remaining</div>
-                                            <div>{{ receipt?.remainingAmount }}</div>
+                                            <div>{{ bankEmployeeReceipt?.remainingAmount }}</div>
                                         </div>
                                     </div>
 

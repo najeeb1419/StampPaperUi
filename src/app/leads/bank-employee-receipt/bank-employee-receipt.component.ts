@@ -1,12 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { PaymentDto } from 'src/app/Models/PaymentDto';
-import { ReceiptDto } from 'src/app/Models/ReceiptDto';
+import { BankEmployeeReceiptDto } from 'src/app/Models/BankEmployeeReceiptDto';
 import { SelectItemDto } from 'src/app/Models/SelectItemDto';
 import { ApiProxyService } from 'src/app/api-proxy-service';
 import * as converter from "number-to-words";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CreateReceiptComponent } from './create-receipt/create-receipt.component';
 import { LookUp } from 'src/app/Models/LookUp';
 import { Router } from '@angular/router';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
@@ -14,17 +13,17 @@ import { AccountModel } from 'src/app/Models/account-model';
 
 
 @Component({
-  selector: 'app-receipt',
-  templateUrl: './receipt.component.html',
-  styleUrls: ['./receipt.component.scss'],
+  selector: 'app-bank-employee-receipt',
+  templateUrl: './bank-employee-receipt.component.html',
+  styleUrls: ['./bank-employee-receipt.component.scss'],
 })
-export class ReceiptComponent  implements OnInit  {
-  receipts: ReceiptDto[] = [];
+export class BankEmployeeReceiptComponent  implements OnInit  {
+  bankEmployeeReceipts: BankEmployeeReceiptDto[] = [];
   keyword = '';
   isActive: string;
   advancedFiltersVisible = false;
   paymentDto = new PaymentDto();
-  receipt = new ReceiptDto();
+  bankEmployeeReceipt = new BankEmployeeReceiptDto();
   amountInWords: string = '';
   accountList: AccountModel[] = [];
   memberList: SelectItemDto[] = [];
@@ -48,7 +47,7 @@ export class ReceiptComponent  implements OnInit  {
     private formBuilder:FormBuilder
   ) {
     this.getAccounts();
-    this.getReceipts();
+    this.getBankEmployeeReceipts();
   }
 
 
@@ -74,10 +73,10 @@ export class ReceiptComponent  implements OnInit  {
 
   }
 
-  async getReceipts(){
-    (await this._apiService.getRequest('Receipt/GetReceipts')).subscribe(res=>{
-      this.receipts = res;
-      this.dropdownStates.length=this.receipts.length;
+  async getBankEmployeeReceipts(){
+    (await this._apiService.getRequest('BankEmployeeReceipt/GetBankEmployeeReceipts')).subscribe(res=>{
+      this.bankEmployeeReceipt = res;
+      this.dropdownStates.length=this.bankEmployeeReceipts.length;
     })
   }
 
@@ -87,35 +86,35 @@ export class ReceiptComponent  implements OnInit  {
     const confirmDelete = window.confirm('Are you sure you want to delete this user?');
 
     if (confirmDelete) {
-    (await this._apiService.deleteRequest('Receipt/DeleteReceipt', id)).subscribe(res => {
-      this.receipts = this.receipts.filter(x=>x.id !=id);
+    (await this._apiService.deleteRequest('BankEmployeeReceipt/DeleteBankEmployeeReceipt', id)).subscribe(res => {
+      this.bankEmployeeReceipts = this.bankEmployeeReceipts.filter(x=>x.id !=id);
     });
     }
   }
 
 
 
-  createReceipt() {
+  createBankEmployeeReceipt() {
     this.router.navigate(['leads/create-receipt']);
   }
 
-  editReceipt(receipt:ReceiptDto){
+  editBankEmployeeReceipt(receipt:BankEmployeeReceiptDto){
     this.router.navigate(['leads/edit-receipt'], { state: { receipt } });
   }
 
 
 
-  async payment(receipt: ReceiptDto , index:number) {
+  async payment(bankEmployeeReceipt: BankEmployeeReceiptDto , index:number) {
       this.showPayment();
-      this.receipt = receipt;
+      this.bankEmployeeReceipt = bankEmployeeReceipt;
       this.dropdownStates[index] = false;
-      this.getPayment(receipt.id);
+      this.getPayment(bankEmployeeReceipt.id);
   }
 
  async getPayment(receiptId:Number){
-  (await this._apiService.getRequestById('Payment/GetPaymentByReceiptId',receiptId)).subscribe(res=>{
+  (await this._apiService.getRequestById('Payment/GetPaymentByBankEmployeeReceiptId',receiptId)).subscribe(res=>{
     this.payments = res;
-    this.dropdownStates.length=this.receipts.length;
+    this.dropdownStates.length=this.bankEmployeeReceipts.length;
   })
  }
 
@@ -135,12 +134,12 @@ export class ReceiptComponent  implements OnInit  {
     debugger;
     this.saving = true;
     this.paymentForm.patchValue({
-      receiptId:this.receipt.id
+      receiptId:this.bankEmployeeReceipt.id
     });
 
     (await this._apiService.postRequest('Payment/AddPayment', this.paymentForm.value)).subscribe(
       () => {
-        this.updateReceipt();
+        this.updateBankEmployeeReceipt();
         this.saving = false;
         this.paymentForm.reset();
         this.onSave.emit();
@@ -160,31 +159,31 @@ export class ReceiptComponent  implements OnInit  {
 
   getRemainingAmount() {
     let sendingAmount= this.paymentForm.get("sendingAmount")?.value;
-    if (sendingAmount > this.receipt.remainingAmount) {
+    if (sendingAmount > this.bankEmployeeReceipt.remainingAmount) {
       alert(
         'Sending amount should be less or equal then remaining amount'
       );
       this.paymentDto.sendingAmount = 0;
       return;
     }
-    this.receipt.remainingAmount =
-      this.receipt.remainingAmount - sendingAmount;
+    this.bankEmployeeReceipt.remainingAmount =
+      this.bankEmployeeReceipt.remainingAmount - sendingAmount;
   }
 
-  async updateReceipt() {
-    this.receipt.payments = [];
-    this.receipt.lookUpId =
-      this.receipt.remainingAmount > 0 ? LookUp.Partial : LookUp.Completed;
+  async updateBankEmployeeReceipt() {
+    this.bankEmployeeReceipt.payments = [];
+    this.bankEmployeeReceipt.lookUpId =
+      this.bankEmployeeReceipt.remainingAmount > 0 ? LookUp.Partial : LookUp.Completed;
       let formDate ={
-        id:this.receipt.id,
-        tenantId:this.receipt.tenantId,
-        lookUpId:this.receipt.remainingAmount > 0 ? LookUp.Partial : LookUp.Completed,
-        amount:this.receipt.amount,
+        id:this.bankEmployeeReceipt.id,
+        tenantId:this.bankEmployeeReceipt.tenantId,
+        lookUpId:this.bankEmployeeReceipt.remainingAmount > 0 ? LookUp.Partial : LookUp.Completed,
+        amount:this.bankEmployeeReceipt.amount,
         isActive:true,
-        memberId:this.receipt.member.id,
-        remainingAmount:this.receipt.remainingAmount,
+        bankEmployeeId:this.bankEmployeeReceipt.bankEmployee.id,
+        remainingAmount:this.bankEmployeeReceipt.remainingAmount,
       };
-    (await this._apiService.putRequest('Receipt/UpdateReceipt', formDate)).subscribe(
+    (await this._apiService.putRequest('BankEmployeeReceipt/UpdateBankEmployeeReceipt', formDate)).subscribe(
       (result) => {
         this.hidePayment();
       },

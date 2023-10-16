@@ -35,7 +35,7 @@ constructor(private apiService :ApiProxyService ,private route:Router){
     this.dataSource1 = new MatTableDataSource(this.AllLeads);
     this.dataSource1.paginator = this.paginator;
 
- 
+
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -75,7 +75,7 @@ constructor(private apiService :ApiProxyService ,private route:Router){
 }
 getRecord(id :number){
 
-  this.route.navigate(['leads/profile'], { state: { id } });
+  this.route.navigate(['system/profile'], { state: { id } });
 }
 }
 

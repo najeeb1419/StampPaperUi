@@ -48,7 +48,7 @@ export class CreateMemberComponent  implements OnInit {
 
     (await this._apiService.postRequest('Member/AddMember', this.createMemberFrom.value)).toPromise().then(
       () => {
-        this.router.navigate(['leads/member']);
+        this.router.navigate(['system/member']);
       },
       () => {
         this.saving = false;

@@ -47,7 +47,7 @@ export class CreateBankEmployeeComponent implements OnInit {
 
     (await this._apiService.postRequest('BankEmployee/AddBankEmployee', this.createBankEmployeeFrom.value)).toPromise().then(
       () => {
-        this.router.navigate(['leads/bank-employee']);
+        this.router.navigate(['system/bank-employee']);
       },
       () => {
         this.saving = false;

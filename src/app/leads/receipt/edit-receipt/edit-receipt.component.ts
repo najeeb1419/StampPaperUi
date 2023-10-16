@@ -78,7 +78,7 @@ export class EditReceiptComponent implements OnInit {
       )
     ).subscribe(
       () => {
-        this.router.navigate(['leads/receipt']);
+        this.router.navigate(['system/receipt']);
       },
       () => {
         this.saving = false;

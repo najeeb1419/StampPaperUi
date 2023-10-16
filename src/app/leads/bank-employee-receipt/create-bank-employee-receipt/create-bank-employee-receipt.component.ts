@@ -7,7 +7,7 @@ import {
 import { Router } from '@angular/router';
 import * as converter from 'number-to-words';
 import { LookUp } from 'src/app/Models/LookUp';
-import { MemberDto } from 'src/app/Models/MemberDto';
+import { BankEmployeeDto } from 'src/app/Models/BankEmployeeDto';
 import { BankEmployeeReceiptDto } from 'src/app/Models/BankEmployeeReceiptDto';
 import { ApiProxyService } from 'src/app/api-proxy-service';
 
@@ -19,8 +19,8 @@ import { ApiProxyService } from 'src/app/api-proxy-service';
 export class CreateBankEmployeeReceiptComponent implements OnInit {
   saving = false;
   bankEmployeeReceipt = new BankEmployeeReceiptDto();
-  members: MemberDto[] = [];
-  member = new MemberDto();
+  bankEmployees: BankEmployeeDto[] = [];
+  bankEmployee = new BankEmployeeDto();
   amountInWords: string = '';
   createBankEmployeeReceiptFrom: FormGroup;
   @ViewChild('printContent') printContentElementRef!: ElementRef;
@@ -33,10 +33,10 @@ export class CreateBankEmployeeReceiptComponent implements OnInit {
 
   ngOnInit(): void {
     this.bankEmployeeReceipt.isActive = true;
-    this.getMemberList();
+    this.getBankEmployeeList();
     this.createBankEmployeeReceiptFrom = this.formBuilder.group({
       name: ['', Validators.required],
-      memberId: [0, Validators.required],
+      bankEmployeeId: [0, Validators.required],
       accountNo: [0, Validators.required],
       address: [''],
       cnic: [''],
@@ -62,7 +62,7 @@ export class CreateBankEmployeeReceiptComponent implements OnInit {
 
 
         this.printPage()
-        this.router.navigate(['leads/bankEmployeeReceipt']);
+        this.router.navigate(['system/bank-employee-receipt']);
       },
       () => {
         this.saving = false;
@@ -73,30 +73,25 @@ export class CreateBankEmployeeReceiptComponent implements OnInit {
 
 
 
-  async getMemberList() {
-    (await this._apiService.getRequest('Member/GetMembers')).subscribe(
+  async getBankEmployeeList() {
+    (await this._apiService.getRequest('BankEmployee/GetBankEmployees')).subscribe(
       (res: any) => {
-        this.members = res;
+        this.bankEmployees = res;
       }
     );
   }
 
-  async getMember() {
-    (
-      await this._apiService.getRequestById(
-        'Member/MemberGetById',
-        this.createBankEmployeeReceiptFrom.get('memberId')?.value
-      )
-    ).subscribe((res) => {
-      this.member = res;
+  async getBankEmployee() {
+     let bankEmployeeId= this.createBankEmployeeReceiptFrom.get("bankEmployeeId")?.value;
+      this.bankEmployee = this.bankEmployees?.find(x=>x.id==bankEmployeeId) || new BankEmployeeDto();
       this.createBankEmployeeReceiptFrom.patchValue({
-        name: this.member.name,
-        memberId: this.member.id,
-        accountNo: this.member.accountNo,
-        address: this.member.address,
-        cnic: this.member.cnic
+        name: this.bankEmployee.name,
+        bankEmployeeId: this.bankEmployee.id,
+        accountNo: this.bankEmployee.accountNo,
+        address: this.bankEmployee.address,
+        cnic: this.bankEmployee.cnic
       });
-    });
+
   }
 
   changeAmountToWords() {

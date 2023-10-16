@@ -39,7 +39,7 @@ export class EditAccountComponent {
     this.saving = true;
     (await this._apiService.putRequest('Account/UpdateAccount', this.editAccountFrom.value)).subscribe(
       () => {
-        this.router.navigate(['leads/account']);
+        this.router.navigate(['system/account']);
       },
       () => {
         this.saving = false;

@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import * as converter from 'number-to-words';
 import { LookUp } from 'src/app/Models/LookUp';
-import { MemberDto } from 'src/app/Models/MemberDto';
+import { BankEmployeeDto } from 'src/app/Models/BankEmployeeDto';
 import { BankEmployeeReceiptDto } from 'src/app/Models/BankEmployeeReceiptDto';
 import { SelectItemDto } from 'src/app/Models/SelectItemDto';
 import { ApiProxyService } from 'src/app/api-proxy-service';
@@ -23,12 +23,12 @@ import { ApiProxyService } from 'src/app/api-proxy-service';
 export class EditBankEmployeeReceiptComponent implements OnInit {
   saving = false;
   bankEmployeeReceipt = new BankEmployeeReceiptDto();
-  member: MemberDto = new MemberDto();
+  bankEmployee: BankEmployeeDto = new BankEmployeeDto();
   @Output() onSave = new EventEmitter<any>();
   id: number;
   amountInWords: string = '';
 
-  members: MemberDto[] = [];
+  bankEmployees: BankEmployeeDto[] = [];
   editBankEmployeeReceiptFrom: FormGroup;
   constructor(
     public _apiService: ApiProxyService,
@@ -41,7 +41,7 @@ export class EditBankEmployeeReceiptComponent implements OnInit {
     this.editBankEmployeeReceiptFrom = this.formBuilder.group({
       id:[this.bankEmployeeReceipt.id],
       name: [this.bankEmployeeReceipt.bankEmployee.name, Validators.required],
-      memberId: [this.bankEmployeeReceipt.bankEmployee.id, Validators.required],
+      bankEmployeeId: [this.bankEmployeeReceipt.bankEmployee.id, Validators.required],
       accountNo: [this.bankEmployeeReceipt.bankEmployee.accountNo, Validators.required],
       address: [this.bankEmployeeReceipt.bankEmployee.address],
       cnic: [this.bankEmployeeReceipt.bankEmployee.cnic],
@@ -53,15 +53,15 @@ export class EditBankEmployeeReceiptComponent implements OnInit {
       remainingAmount: [null],
     });
 
-    this.getMemberList();
+    this.getBankEmployeeList();
     this.changeAmountToWords();
   }
 
-  async getMemberList() {
-    (await this._apiService.getRequest('Member/GetMembers')).subscribe(
+  async getBankEmployeeList() {
+    (await this._apiService.getRequest('BankEmployeeReceipt/GetBankEmployees')).subscribe(
       (res) => {
-        this.members = res;
-        this.getMember();
+        this.bankEmployees = res;
+        this.getBankEmployee();
       }
     );
   }
@@ -78,7 +78,7 @@ export class EditBankEmployeeReceiptComponent implements OnInit {
       )
     ).subscribe(
       () => {
-        this.router.navigate(['leads/bankEmployeeReceipt']);
+        this.router.navigate(['system/bankEmployeeReceipt']);
       },
       () => {
         this.saving = false;
@@ -94,9 +94,16 @@ export class EditBankEmployeeReceiptComponent implements OnInit {
     });
   }
 
-  async getMember() {
-    let memberId = this.editBankEmployeeReceiptFrom.get('memberId')?.value;
-    let member = this.members.find((x) => x.id == memberId);
-    this.member = member || new MemberDto();
+  async getBankEmployee() {
+    let bankEmployeeId = this.editBankEmployeeReceiptFrom.get('bankEmployeeId')?.value;
+    let bankEmployee = this.bankEmployees.find((x) => x.id == bankEmployeeId);
+    this.bankEmployee = bankEmployee || new BankEmployeeDto();
+    this.editBankEmployeeReceiptFrom.patchValue({
+      name: this.bankEmployee.name,
+      bankEmployeeId: this.bankEmployee.id,
+      accountNo: this.bankEmployee.accountNo,
+      address: this.bankEmployee.address,
+      cnic: this.bankEmployee.cnic
+    });
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { Login } from 'src/app/models/login-model';
+import { Login } from 'src/app/Models/login-model';
 import { ApiProxyService } from 'src/app/api-proxy-service';
 
 @Component({
@@ -29,9 +29,10 @@ export class LoginComponent {
       console.log(result);
       debugger
       localStorage.setItem('userId', result.user.id);
+      localStorage.setItem('userName', result.user.name);
       localStorage.setItem('TenantId', result.user.tenantId);
       localStorage.setItem('userToken',result.token)
-      this.route.navigate(['/leads']);
+      this.route.navigate(['/system/receipt']);
     }, () => {
       this.message = "User name or password incorrect."
     })

@@ -55,7 +55,7 @@ export class BankEmployeeReceiptComponent  implements OnInit  {
 
     this.paymentForm = this.formBuilder.group({
       accountId: [null, Validators.required],
-      receiptId: [null, Validators.required],
+      bankEmployeeReceiptId: [null, Validators.required],
       sendingAmount: [0, Validators.required],
       tenantId:[localStorage.getItem("TenantId")]
 
@@ -75,8 +75,8 @@ export class BankEmployeeReceiptComponent  implements OnInit  {
 
   async getBankEmployeeReceipts(){
     (await this._apiService.getRequest('BankEmployeeReceipt/GetBankEmployeeReceipts')).subscribe(res=>{
-      this.bankEmployeeReceipt = res;
-      this.dropdownStates.length=this.bankEmployeeReceipts.length;
+      this.bankEmployeeReceipts = res;
+      // this.dropdownStates.length=this.bankEmployeeReceipts.length;
     })
   }
 
@@ -95,11 +95,11 @@ export class BankEmployeeReceiptComponent  implements OnInit  {
 
 
   createBankEmployeeReceipt() {
-    this.router.navigate(['leads/create-receipt']);
+    this.router.navigate(['system/create-bank-employee-receipt']);
   }
 
   editBankEmployeeReceipt(receipt:BankEmployeeReceiptDto){
-    this.router.navigate(['leads/edit-receipt'], { state: { receipt } });
+    this.router.navigate(['system/edit-bank-employee-receipt'], { state: { receipt } });
   }
 
 
@@ -112,7 +112,7 @@ export class BankEmployeeReceiptComponent  implements OnInit  {
   }
 
  async getPayment(receiptId:Number){
-  (await this._apiService.getRequestById('Payment/GetPaymentByBankEmployeeReceiptId',receiptId)).subscribe(res=>{
+  (await this._apiService.getRequestById('BankEmployeePayment/GetBankEmployeePaymentByReceiptId',receiptId)).subscribe(res=>{
     this.payments = res;
     this.dropdownStates.length=this.bankEmployeeReceipts.length;
   })
@@ -134,10 +134,10 @@ export class BankEmployeeReceiptComponent  implements OnInit  {
     debugger;
     this.saving = true;
     this.paymentForm.patchValue({
-      receiptId:this.bankEmployeeReceipt.id
+      bankEmployeeReceiptId:this.bankEmployeeReceipt.id
     });
 
-    (await this._apiService.postRequest('Payment/AddPayment', this.paymentForm.value)).subscribe(
+    (await this._apiService.postRequest('BankEmployeePayment/AddBankEmployeePayment', this.paymentForm.value)).subscribe(
       () => {
         this.updateBankEmployeeReceipt();
         this.saving = false;

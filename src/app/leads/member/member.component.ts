@@ -50,11 +50,11 @@ export class MemberComponent  {
 
 
   createMember(): void {
-    this.router.navigate(['leads/create-member']);
+    this.router.navigate(['/create-member']);
   }
 
   editMember(user: MemberDto): void {
-    this.router.navigate(['leads/edit-member'], { state: { user } });
+    this.router.navigate(['system/edit-member'], { state: { user } });
   }
 
 }

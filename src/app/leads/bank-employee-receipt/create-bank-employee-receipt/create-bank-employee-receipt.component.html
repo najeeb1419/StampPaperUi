@@ -3,11 +3,11 @@
         <h4 class="modal-title">
             Create Bank Employee Receipt</h4>
         <div class="col-md-6 required">
-            <label class="col-form-label" for="memberId">
+            <label class="col-form-label" for="bankEmployeeId">
               Name
           </label>
-            <select class="form-control" formControlName="memberId" id="memberId" (change)="getMember()">
-              <option *ngFor="let member of members" [value]="member.id">{{member.name}}
+            <select class="form-control" formControlName="bankEmployeeId" id="bankEmployeeId" (change)="getBankEmployee()">
+              <option *ngFor="let bankEmployee of bankEmployees" [value]="bankEmployee.id">{{bankEmployee.name}}
               </option>
           </select>
         </div>

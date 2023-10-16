@@ -50,11 +50,11 @@ export class AccountComponent {
 
 
   createAccount(): void {
-    this.router.navigate(['leads/create-account']);
+    this.router.navigate(['system/create-account']);
   }
 
   editAccount(account: AccountModel): void {
-    this.router.navigate(['leads/edit-account'], { state: { account } });
+    this.router.navigate(['system/edit-account'], { state: { account } });
   }
 
 

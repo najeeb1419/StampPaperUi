@@ -48,7 +48,7 @@ export class EditMemberComponent  implements OnInit {
 
     (await this.apiService.putRequest('Member/UpdateMember', this.editMemberFrom.value)).subscribe(
       () => {
-        this.router.navigate(['leads/member']);
+        this.router.navigate(['system/member']);
       },
       () => {
         this.saving = false;

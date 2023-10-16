@@ -46,7 +46,7 @@ export class EditBankEmployeeComponent implements OnInit {
 
     (await this.apiService.putRequest('BankEmployee/UpdateBankEmployee', this.editBankEmployeeFrom.value)).subscribe(
       () => {
-        this.router.navigate(['leads/bank-employee']);
+        this.router.navigate(['system/bank-employee']);
       },
       () => {
         this.saving = false;

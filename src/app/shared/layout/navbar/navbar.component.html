@@ -1,7 +1,7 @@
 <div class="nav-main">
     <div class="nav-left">
         <div class="nav-msg-author">
-            Good Morning Robert
+            Good Morning {{userName}}
         </div>
         <div class="nav-welscome-msg">
             Welcome Back!
@@ -27,11 +27,11 @@
                             <fa-icon [icon]="faChevronDown"></fa-icon>
                         </button>
                         <div class="dropdown-content" *ngIf="isDropdownOpen">
-                          <a (click)="logout()">Logout</a>
-                      
+                            <a (click)="logout()">Logout</a>
+
                         </div>
-                      </div>
-                
+                    </div>
+
                 </div>
 
             </div>

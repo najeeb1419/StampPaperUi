@@ -63,7 +63,7 @@ export class CreateReceiptComponent implements OnInit {
 
 
         this.printPage()
-        this.router.navigate(['leads/receipt']);
+        this.router.navigate(['system/receipt']);
       },
       () => {
         this.saving = false;

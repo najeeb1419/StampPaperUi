@@ -8,8 +8,10 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  constructor(private route:Router){
+  userName:any;
 
+  constructor(private route:Router){
+    this.userName=localStorage.getItem("userName");
   }
   faChevronDown = faChevronDown
 

@@ -45,11 +45,11 @@ export class BankEmployeeComponent {
 
 
   createBankEmployee(): void {
-    this.router.navigate(['leads/create-bank-employee']);
+    this.router.navigate(['system/create-bank-employee']);
   }
 
   editBankEmployee(user: BankEmployeeDto): void {
-    this.router.navigate(['leads/edit-bank-employee'], { state: { user } });
+    this.router.navigate(['system/edit-bank-employee'], { state: { user } });
   }
 
 }

@@ -24,7 +24,7 @@ import { BankEmployeeReceiptComponent } from './bank-employee-receipt/bank-emplo
 
 const routes: Routes = [
   {
-    path: '', component: LeadsComponent,canActivate:[AuthGuard]
+    path: '', component: ReceiptComponent,canActivate:[AuthGuard]
   },
   {
 

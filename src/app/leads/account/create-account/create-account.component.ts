@@ -39,7 +39,7 @@ export class CreateAccountComponent  {
    });
     (await this._apiService.postRequest('Account/AddAccount', this.createAccountFrom.value)).subscribe(
       () => {
-        this.router.navigate(['leads/account']);
+        this.router.navigate(['system/account']);
       () => {
         this.saving = false;
       }

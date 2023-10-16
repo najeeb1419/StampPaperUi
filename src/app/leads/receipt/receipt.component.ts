@@ -96,11 +96,11 @@ export class ReceiptComponent  implements OnInit  {
 
 
   createReceipt() {
-    this.router.navigate(['leads/create-receipt']);
+    this.router.navigate(['system/create-receipt']);
   }
 
   editReceipt(receipt:ReceiptDto){
-    this.router.navigate(['leads/edit-receipt'], { state: { receipt } });
+    this.router.navigate(['system/edit-receipt'], { state: { receipt } });
   }
 
 

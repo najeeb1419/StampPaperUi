@@ -26,7 +26,7 @@ const routes: Routes = [
         component: DashboardComponent,
       },
       {
-        path: 'leads',
+        path: 'system',
         loadChildren: () =>
           import('./leads/lead.module').then((m) => m.LeadsModule),canActivate:[AuthGuard]
       },

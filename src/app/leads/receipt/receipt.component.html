@@ -39,7 +39,7 @@
                                                     <div class="dropdown-container">
                                                         <div class="dropdown" *ngIf="dropdownStates[i]">
                                                             <ul>
-                                                                <li (click)="editReceipt(receipt)">
+                                                                <li (click)="editReceipt(receipt)" *ngIf="receipt.status=='Pending'">
                                                                     <button class="btn btn-sm btn-primary btn-lg btn-block">
                                   Edit
                                 </button>
@@ -203,4 +203,68 @@
             </div>
         </div>
     </div>
+</div>
+
+
+
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let row"> {{row?.member?.name}} </td>
+        </ng-container>
+
+        <!-- Contact Number Column -->
+        <ng-container matColumnDef="contactNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact No </th>
+            <td mat-cell *matCellDef="let row"> {{row?.member?.contactNo}} </td>
+        </ng-container>
+
+        <!-- Address Column -->
+        <ng-container matColumnDef="Address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+            <td mat-cell *matCellDef="let row"> {{row?.member?.address}} </td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+            <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+        </ng-container>
+
+        <!-- Account Number Column -->
+        <ng-container matColumnDef="accountNo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Account No </th>
+            <td mat-cell *matCellDef="let row"> {{row?.member?.accountNo}} </td>
+        </ng-container>
+
+        <!-- Amount Column -->
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+            <td mat-cell *matCellDef="let row"> {{row.amount}} </td>
+        </ng-container>
+
+        <!-- Remaining Column -->
+        <ng-container matColumnDef="remainingAmount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Remaining </th>
+            <td mat-cell *matCellDef="let row"> {{row?.remainingAmount}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" [attr.colspan]="displayedColumns.length">No data matching the filter "{{input.value}}"</td>
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 </div>

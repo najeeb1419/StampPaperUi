@@ -7,6 +7,46 @@ import {SelectionModel} from '@angular/cdk/collections';
 import { ApiProxyService } from 'src/app/api-proxy-service';
 import { Router } from '@angular/router';
 
+export interface UserData {
+  id: string;
+  name: string;
+  progress: string;
+  fruit: string;
+}
+
+/** Constants used to fill up our data base. */
+const FRUITS: string[] = [
+  'blueberry',
+  'lychee',
+  'kiwi',
+  'mango',
+  'peach',
+  'lime',
+  'pomegranate',
+  'pineapple',
+];
+const NAMES: string[] = [
+  'Maia',
+  'Asher',
+  'Olivia',
+  'Atticus',
+  'Amelia',
+  'Jack',
+  'Charlotte',
+  'Theodore',
+  'Isla',
+  'Oliver',
+  'Isabella',
+  'Jasper',
+  'Cora',
+  'Levi',
+  'Violet',
+  'Arthur',
+  'Mia',
+  'Thomas',
+  'Elizabeth',
+];
+
 @Component({
   selector: 'app-lead-table',
   templateUrl: './lead-table.component.html',

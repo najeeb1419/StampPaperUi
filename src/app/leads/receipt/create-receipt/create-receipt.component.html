@@ -65,24 +65,32 @@
 
 
 <div #printContent class="container" hidden>
-    <div class="col-md-12">
-        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
-            <div class="title">Name</div>
-            <div>{{ createReceiptFrom.get("name")?.value }}</div>
-        </div>
+    <table class="table table-bordered table-responsive">
+        <tr>
+            <td colspan="2">
+                <h3>Sadique Stamp Paper</h3>
+            </td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ createReceiptFrom.get("name")?.value }}</td>
+        </tr>
+        <tr>
+            <th>Account No</th>
+            <td>{{ createReceiptFrom.get("accountNo")?.value }}</td>
+        </tr>
+        <tr>
+            <th>CNIC</th>
+            <td>{{ createReceiptFrom.get("cnic")?.value }}</td>
+        </tr>
+        <tr>
+            <th>Amount</th>
+            <td>{{ createReceiptFrom.get("amount")?.value }}</td>
+        </tr>
 
-        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
-            <div class="title">Account No</div>
-            <div>{{createReceiptFrom.get("accountNo")?.value }}</div>
-        </div>
-
-        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
-            <div class="title">CNIC</div>
-            <div>{{ createReceiptFrom.get("cnic")?.value }}</div>
-        </div>
-        <div class="payment-border d-flex justify-content-between pb-2 pt-2">
-            <div class="title">Amount</div>
-            <div>{{ createReceiptFrom.get("amount")?.value }}</div>
-        </div>
-    </div>
+        <tr>
+            <th>Signature</th>
+            <td></td>
+        </tr>
+    </table>
 </div>

@@ -106,7 +106,7 @@ export class CreateReceiptComponent implements OnInit {
     })
   }
 
-  printPage() {
+  async printPage() {
     const printContent = this.printContentElementRef.nativeElement.innerHTML;
 
     const printWindow = window.open('', '', 'width=1000,height=1000') as Window;
@@ -115,7 +115,7 @@ export class CreateReceiptComponent implements OnInit {
       <html>
       <head>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <title>Print Content</title>
+        <title>Contact:03061290890</title>
       </head>
       <body>
         ${printContent}
@@ -123,40 +123,11 @@ export class CreateReceiptComponent implements OnInit {
       </body>
       </html>
     `);
-    printWindow.document.close();
-    printWindow.print();
 
-    // Listen for the "afterprint" event and close the window
     printWindow.addEventListener('afterprint', () => {
       printWindow.close();
     });
 }
 
-  printPage11() {
-    const printContent = this.printContentElementRef.nativeElement.innerHTML;
 
-    // Create a new window for printing
-    var tab = window.open('') as Window
-    const printWindow = new Window;
-    printWindow.open('', '_blank');
-    printWindow?.document.write(`
-      <html>
-      <head>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <title>Print Content</title>
-      </head>
-      <body>
-        ${printContent}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-      </body>
-      </html>
-    `);
-    printWindow?.document.close();
-
-    // Wait for the content to load in the new window
-    printWindow.onload = function() {
-      printWindow.print(); // Print the content
-      printWindow.close(); // Close the print window after printing
-    }
-  }
 }
